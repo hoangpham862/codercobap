@@ -1,0 +1,34 @@
+name: codercobap
+packages:
+  - core
+  - domain
+  - data
+  - presentation/**
+  - packages/** # Nếu bạn có folder packages riêng
+command:
+  bootstrap:
+    # Chạy lệnh thông qua FVM
+    runPubGetInParallel: true 
+scripts:
+  # Lệnh get toàn bộ dùng FVM
+  get:
+    run: melos exec -- "fvm flutter pub get"
+    description: Chạy pub get cho toàn bộ modules bằng FVM.
+  # Build runner cho toàn bộ (chỉ những thằng có depends-on build_runner)
+  build:all:
+    run: melos exec --depends-on="build_runner" -- "fvm flutter pub run build_runner build --delete-conflicting-outputs"
+    description: Build toàn bộ các module có dùng build_runner.
+  # Build riêng cho từng mảng (Dùng filter --scope)
+  build:data:
+    run: melos exec --scope="*data*" -- "fvm flutter pub run build_runner build --delete-conflicting-outputs"
+    description: Build riêng module data.
+  build:domain:
+    run: melos exec --scope="*domain*" -- "fvm flutter pub run build_runner build --delete-conflicting-outputs"
+    description: Build riêng module domain.
+  build:app:
+    run: melos exec --scope="*app*" -- "fvm flutter pub run build_runner build --delete-conflicting-outputs"
+    description: Build riêng module app.
+  # Lệnh dọn dẹp (Clean)
+  clean:
+    run: melos exec -- "fvm flutter clean"
+    description: Clean toàn bộ dự án.
