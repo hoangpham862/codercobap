@@ -1,0 +1,8 @@
+# melos_managed_dependency_overrides: resources,navigation,features
+dependency_overrides:
+  features:
+    path: ../features
+  navigation:
+    path: ../navigation
+  resources:
+    path: ../resources

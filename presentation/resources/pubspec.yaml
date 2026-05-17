@@ -26,7 +26,7 @@ flutter:
   assets:
     - assets/font/
     - assets/images/
-    - assets/language/
+    - assets/translations/
   
   #
   # For details regarding assets in packages, see
@@ -54,11 +54,11 @@ flutter:
   fonts:
     - family: Aeonik
       fonts:
-        - asset: font/Aeonik-Black.ttf
-        - asset: font/Aeonik-Bold.ttf
-        - asset: font/Aeonik-Light.ttf
-        - asset: font/Aeonik-Medium.ttf
-        - asset: font/Aeonik-ThinItalic.ttf
+        - asset: assets/font/Aeonik-Black.ttf
+        - asset: assets/font/Aeonik-Bold.ttf
+        - asset: assets/font/Aeonik-Medium.ttf
+        - asset: assets/font/Aeonik-Regular.ttf
+        - asset: assets/font/Aeonik-ThinItalic.ttf
 
   #
   # For details regarding fonts in packages, see

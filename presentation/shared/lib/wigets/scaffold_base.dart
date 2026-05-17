@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shared/shared.dart';
 
 class ScaffoldBase extends StatelessWidget {
   final String? titleAppBar;
@@ -74,7 +75,7 @@ class ScaffoldBase extends StatelessWidget {
         }
       },
       child: Scaffold(
-        body: body,
+        body: SafeArea(child: body ?? const SizedBox.shrink()),
         key: key,
         appBar: appBar,
         floatingActionButton: floatingActionButton,
@@ -86,7 +87,7 @@ class ScaffoldBase extends StatelessWidget {
         onEndDrawerChanged: onEndDrawerChanged,
         bottomNavigationBar: bottomNavigationBar,
         bottomSheet: bottomSheet,
-        backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor ?? ThemeProvider.themeOf(context).data.colorScheme.background,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         primary: primary,
         drawerDragStartBehavior: drawerDragStartBehavior,
