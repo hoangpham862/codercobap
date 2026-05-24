@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:shared/theme/app_font_const.dart';
 import 'package:shared/theme/app_theme_id.dart';
+
 import 'package:shared/theme/extensions/app_text_style_theme.dart';
 import 'package:theme_provider/theme_provider.dart';
+
+import '../data/theme_data.dart';
+import '../extensions/app_color_theme_extension.dart';
 
 AppTheme get dark {
   ThemeData themeData = FlexThemeData.dark(
@@ -11,6 +15,14 @@ AppTheme get dark {
     fontFamily: AppFontConst.aeonik.value,
     useMaterial3: true,
     extensions: [
+      AppColorTheme(
+        primaryColor: PrimaryColorData.getPrimaryColor(AppThemeId.dark.value),
+        secondaryColor:
+            SecondaryColorData.getSecondaryColor(AppThemeId.dark.value),
+        neutralColor: NeutralColorData.getNeutralColor(AppThemeId.dark.value),
+        tertiaryColor:
+            TertiaryColorData.getTertiaryColor(AppThemeId.dark.value),
+      ),
       AppTextStyleTheme(
         cat6Medi24: TextStyle(
           fontSize: 24,

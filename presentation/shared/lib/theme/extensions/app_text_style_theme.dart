@@ -275,12 +275,18 @@ class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
       primaryRegu12: TextStyle.lerp(primaryRegu12, other.primaryRegu12, t),
       primaryRegu14: TextStyle.lerp(primaryRegu14, other.primaryRegu14, t),
       primaryRegu16: TextStyle.lerp(primaryRegu16, other.primaryRegu16, t),
-      onPrimaryMedi12: TextStyle.lerp(onPrimaryMedi12, other.onPrimaryMedi12, t),
-      onPrimaryMedi14: TextStyle.lerp(onPrimaryMedi14, other.onPrimaryMedi14, t),
-      onPrimaryMedi16: TextStyle.lerp(onPrimaryMedi16, other.onPrimaryMedi16, t),
-      onPrimaryRegu12: TextStyle.lerp(onPrimaryRegu12, other.onPrimaryRegu12, t),
-      onPrimaryRegu14: TextStyle.lerp(onPrimaryRegu14, other.onPrimaryRegu14, t),
-      onPrimaryRegu16: TextStyle.lerp(onPrimaryRegu16, other.onPrimaryRegu16, t),
+      onPrimaryMedi12:
+          TextStyle.lerp(onPrimaryMedi12, other.onPrimaryMedi12, t),
+      onPrimaryMedi14:
+          TextStyle.lerp(onPrimaryMedi14, other.onPrimaryMedi14, t),
+      onPrimaryMedi16:
+          TextStyle.lerp(onPrimaryMedi16, other.onPrimaryMedi16, t),
+      onPrimaryRegu12:
+          TextStyle.lerp(onPrimaryRegu12, other.onPrimaryRegu12, t),
+      onPrimaryRegu14:
+          TextStyle.lerp(onPrimaryRegu14, other.onPrimaryRegu14, t),
+      onPrimaryRegu16:
+          TextStyle.lerp(onPrimaryRegu16, other.onPrimaryRegu16, t),
     );
   }
 }

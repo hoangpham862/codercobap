@@ -8,7 +8,10 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textStyle = ThemeProvider.themeOf(context).data.extension<AppTextStyleTheme>()?.cat6Medi24;
+    var textStyle = ThemeProvider.themeOf(context)
+        .data
+        .extension<AppTextStyleTheme>()
+        ?.cat6Medi24;
     return ScaffoldBase(
       body: Center(
         child: Text(
