@@ -1,5 +1,6 @@
 extension ResourceExtension on String {
   String rsc() {
-    return "packages/resources/assets/$this";
+    final cleanPath = startsWith('/') ? substring(1) : this;
+    return "packages/resources/assets/$cleanPath";
   }
 }

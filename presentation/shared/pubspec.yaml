@@ -3,7 +3,6 @@ description: "A new Flutter package project."
 version: 0.0.1
 publish_to: none
 
-
 environment:
   sdk: ^3.5.4
   flutter: ">=1.17.0"
@@ -17,11 +16,13 @@ dependencies:
   flutter_bloc: ^9.1.1
   equatable: ^2.0.8
   easy_localization_loader: ^2.0.2
+  flutter_svg: ^2.3.0
+
+  # packages
   resources:
     path: ../resources
   navigation:
     path: ../navigation
-
 
 dev_dependencies:
   flutter_test:

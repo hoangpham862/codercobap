@@ -87,7 +87,11 @@ class ScaffoldBase extends StatelessWidget {
         onEndDrawerChanged: onEndDrawerChanged,
         bottomNavigationBar: bottomNavigationBar,
         bottomSheet: bottomSheet,
-        backgroundColor: backgroundColor ?? ThemeProvider.themeOf(context).data.colorScheme.background,
+        backgroundColor: backgroundColor ??
+            ThemeProvider.themeOf(context)
+                .data
+                .extension<NeutralColor>()
+                ?.neutralColor9,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         primary: primary,
         drawerDragStartBehavior: drawerDragStartBehavior,

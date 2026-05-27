@@ -1,49 +1,49 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
-  ///cat8
-  final TextStyle? cat8Medi10;
-  final TextStyle? cat8Medi11;
-  final TextStyle? cat8Medi12;
-  final TextStyle? cat8Medi14;
-  final TextStyle? cat8Medi16;
-  final TextStyle? cat8Medi18;
-  final TextStyle? cat8Medi20;
-  final TextStyle? cat8Medi24;
-  final TextStyle? cat8Regu10;
-  final TextStyle? cat8Regu11;
-  final TextStyle? cat8Regu12;
-  final TextStyle? cat8Regu14;
-  final TextStyle? cat8Regu16;
-  final TextStyle? cat8Regu18;
-  final TextStyle? cat8Regu20;
-  final TextStyle? cat8Regu24;
-  final TextStyle? cat8Bold10;
-  final TextStyle? cat8Bold11;
-  final TextStyle? cat8Bold12;
-  final TextStyle? cat8Bold14;
-  final TextStyle? cat8Bold16;
-  final TextStyle? cat8Bold18;
-  final TextStyle? cat8Bold20;
-  final TextStyle? cat8Bold24;
+  ///neu8
+  final TextStyle? neu8Medi10;
+  final TextStyle? neu8Medi11;
+  final TextStyle? neu8Medi12;
+  final TextStyle? neu8Medi14;
+  final TextStyle? neu8Medi16;
+  final TextStyle? neu8Medi18;
+  final TextStyle? neu8Medi20;
+  final TextStyle? neu8Medi24;
+  final TextStyle? neu8Regu10;
+  final TextStyle? neu8Regu11;
+  final TextStyle? neu8Regu12;
+  final TextStyle? neu8Regu14;
+  final TextStyle? neu8Regu16;
+  final TextStyle? neu8Regu18;
+  final TextStyle? neu8Regu20;
+  final TextStyle? neu8Regu24;
+  final TextStyle? neu8Bold10;
+  final TextStyle? neu8Bold11;
+  final TextStyle? neu8Bold12;
+  final TextStyle? neu8Bold14;
+  final TextStyle? neu8Bold16;
+  final TextStyle? neu8Bold18;
+  final TextStyle? neu8Bold20;
+  final TextStyle? neu8Bold24;
 
-  ///cat6
-  final TextStyle? cat6Medi10;
-  final TextStyle? cat6Medi11;
-  final TextStyle? cat6Medi12;
-  final TextStyle? cat6Medi14;
-  final TextStyle? cat6Medi16;
-  final TextStyle? cat6Medi18;
-  final TextStyle? cat6Medi20;
-  final TextStyle? cat6Medi24;
-  final TextStyle? cat6Regu10;
-  final TextStyle? cat6Regu11;
-  final TextStyle? cat6Regu12;
-  final TextStyle? cat6Regu14;
-  final TextStyle? cat6Regu16;
-  final TextStyle? cat6Regu18;
-  final TextStyle? cat6Regu20;
-  final TextStyle? cat6Regu24;
+  ///neu6
+  final TextStyle? neu6Medi10;
+  final TextStyle? neu6Medi11;
+  final TextStyle? neu6Medi12;
+  final TextStyle? neu6Medi14;
+  final TextStyle? neu6Medi16;
+  final TextStyle? neu6Medi18;
+  final TextStyle? neu6Medi20;
+  final TextStyle? neu6Medi24;
+  final TextStyle? neu6Regu10;
+  final TextStyle? neu6Regu11;
+  final TextStyle? neu6Regu12;
+  final TextStyle? neu6Regu14;
+  final TextStyle? neu6Regu16;
+  final TextStyle? neu6Regu18;
+  final TextStyle? neu6Regu20;
+  final TextStyle? neu6Regu24;
 
   ///Primary
   final TextStyle? primaryMedi12;
@@ -60,46 +60,46 @@ class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
   final TextStyle? onPrimaryRegu16;
 
   const AppTextStyleTheme({
-    this.cat8Medi10,
-    this.cat8Medi11,
-    this.cat8Medi12,
-    this.cat8Medi14,
-    this.cat8Medi16,
-    this.cat8Medi18,
-    this.cat8Medi20,
-    this.cat8Medi24,
-    this.cat8Regu10,
-    this.cat8Regu11,
-    this.cat8Regu12,
-    this.cat8Regu14,
-    this.cat8Regu16,
-    this.cat8Regu18,
-    this.cat8Regu20,
-    this.cat8Regu24,
-    this.cat8Bold10,
-    this.cat8Bold11,
-    this.cat8Bold12,
-    this.cat8Bold14,
-    this.cat8Bold16,
-    this.cat8Bold18,
-    this.cat8Bold20,
-    this.cat8Bold24,
-    this.cat6Medi10,
-    this.cat6Medi11,
-    this.cat6Medi12,
-    this.cat6Medi14,
-    this.cat6Medi16,
-    this.cat6Medi18,
-    this.cat6Medi20,
-    this.cat6Medi24,
-    this.cat6Regu10,
-    this.cat6Regu11,
-    this.cat6Regu12,
-    this.cat6Regu14,
-    this.cat6Regu16,
-    this.cat6Regu18,
-    this.cat6Regu20,
-    this.cat6Regu24,
+    this.neu8Medi10,
+    this.neu8Medi11,
+    this.neu8Medi12,
+    this.neu8Medi14,
+    this.neu8Medi16,
+    this.neu8Medi18,
+    this.neu8Medi20,
+    this.neu8Medi24,
+    this.neu8Regu10,
+    this.neu8Regu11,
+    this.neu8Regu12,
+    this.neu8Regu14,
+    this.neu8Regu16,
+    this.neu8Regu18,
+    this.neu8Regu20,
+    this.neu8Regu24,
+    this.neu8Bold10,
+    this.neu8Bold11,
+    this.neu8Bold12,
+    this.neu8Bold14,
+    this.neu8Bold16,
+    this.neu8Bold18,
+    this.neu8Bold20,
+    this.neu8Bold24,
+    this.neu6Medi10,
+    this.neu6Medi11,
+    this.neu6Medi12,
+    this.neu6Medi14,
+    this.neu6Medi16,
+    this.neu6Medi18,
+    this.neu6Medi20,
+    this.neu6Medi24,
+    this.neu6Regu10,
+    this.neu6Regu11,
+    this.neu6Regu12,
+    this.neu6Regu14,
+    this.neu6Regu16,
+    this.neu6Regu18,
+    this.neu6Regu20,
+    this.neu6Regu24,
     this.primaryMedi12,
     this.primaryMedi14,
     this.primaryMedi16,
@@ -116,46 +116,46 @@ class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
 
   @override
   ThemeExtension<AppTextStyleTheme> copyWith({
-    TextStyle? cat8Medi10,
-    TextStyle? cat8Medi11,
-    TextStyle? cat8Medi12,
-    TextStyle? cat8Medi14,
-    TextStyle? cat8Medi16,
-    TextStyle? cat8Medi18,
-    TextStyle? cat8Medi20,
-    TextStyle? cat8Medi24,
-    TextStyle? cat8Regu10,
-    TextStyle? cat8Regu11,
-    TextStyle? cat8Regu12,
-    TextStyle? cat8Regu14,
-    TextStyle? cat8Regu16,
-    TextStyle? cat8Regu18,
-    TextStyle? cat8Regu20,
-    TextStyle? cat8Regu24,
-    TextStyle? cat8Bold10,
-    TextStyle? cat8Bold11,
-    TextStyle? cat8Bold12,
-    TextStyle? cat8Bold14,
-    TextStyle? cat8Bold16,
-    TextStyle? cat8Bold18,
-    TextStyle? cat8Bold20,
-    TextStyle? cat8Bold24,
-    TextStyle? cat6Medi10,
-    TextStyle? cat6Medi11,
-    TextStyle? cat6Medi12,
-    TextStyle? cat6Medi14,
-    TextStyle? cat6Medi16,
-    TextStyle? cat6Medi18,
-    TextStyle? cat6Medi20,
-    TextStyle? cat6Medi24,
-    TextStyle? cat6Regu10,
-    TextStyle? cat6Regu11,
-    TextStyle? cat6Regu12,
-    TextStyle? cat6Regu14,
-    TextStyle? cat6Regu16,
-    TextStyle? cat6Regu18,
-    TextStyle? cat6Regu20,
-    TextStyle? cat6Regu24,
+    TextStyle? neu8Medi10,
+    TextStyle? neu8Medi11,
+    TextStyle? neu8Medi12,
+    TextStyle? neu8Medi14,
+    TextStyle? neu8Medi16,
+    TextStyle? neu8Medi18,
+    TextStyle? neu8Medi20,
+    TextStyle? neu8Medi24,
+    TextStyle? neu8Regu10,
+    TextStyle? neu8Regu11,
+    TextStyle? neu8Regu12,
+    TextStyle? neu8Regu14,
+    TextStyle? neu8Regu16,
+    TextStyle? neu8Regu18,
+    TextStyle? neu8Regu20,
+    TextStyle? neu8Regu24,
+    TextStyle? neu8Bold10,
+    TextStyle? neu8Bold11,
+    TextStyle? neu8Bold12,
+    TextStyle? neu8Bold14,
+    TextStyle? neu8Bold16,
+    TextStyle? neu8Bold18,
+    TextStyle? neu8Bold20,
+    TextStyle? neu8Bold24,
+    TextStyle? neu6Medi10,
+    TextStyle? neu6Medi11,
+    TextStyle? neu6Medi12,
+    TextStyle? neu6Medi14,
+    TextStyle? neu6Medi16,
+    TextStyle? neu6Medi18,
+    TextStyle? neu6Medi20,
+    TextStyle? neu6Medi24,
+    TextStyle? neu6Regu10,
+    TextStyle? neu6Regu11,
+    TextStyle? neu6Regu12,
+    TextStyle? neu6Regu14,
+    TextStyle? neu6Regu16,
+    TextStyle? neu6Regu18,
+    TextStyle? neu6Regu20,
+    TextStyle? neu6Regu24,
     TextStyle? primaryMedi12,
     TextStyle? primaryMedi14,
     TextStyle? primaryMedi16,
@@ -170,46 +170,46 @@ class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
     TextStyle? onPrimaryRegu16,
   }) {
     return AppTextStyleTheme(
-      cat8Medi10: cat8Medi10 ?? this.cat8Medi10,
-      cat8Medi11: cat8Medi11 ?? this.cat8Medi11,
-      cat8Medi12: cat8Medi12 ?? this.cat8Medi12,
-      cat8Medi14: cat8Medi14 ?? this.cat8Medi14,
-      cat8Medi16: cat8Medi16 ?? this.cat8Medi16,
-      cat8Medi18: cat8Medi18 ?? this.cat8Medi18,
-      cat8Medi20: cat8Medi20 ?? this.cat8Medi20,
-      cat8Medi24: cat8Medi24 ?? this.cat8Medi24,
-      cat8Regu10: cat8Regu10 ?? this.cat8Regu10,
-      cat8Regu11: cat8Regu11 ?? this.cat8Regu11,
-      cat8Regu12: cat8Regu12 ?? this.cat8Regu12,
-      cat8Regu14: cat8Regu14 ?? this.cat8Regu14,
-      cat8Regu16: cat8Regu16 ?? this.cat8Regu16,
-      cat8Regu18: cat8Regu18 ?? this.cat8Regu18,
-      cat8Regu20: cat8Regu20 ?? this.cat8Regu20,
-      cat8Regu24: cat8Regu24 ?? this.cat8Regu24,
-      cat8Bold10: cat8Bold10 ?? this.cat8Bold10,
-      cat8Bold11: cat8Bold11 ?? this.cat8Bold11,
-      cat8Bold12: cat8Bold12 ?? this.cat8Bold12,
-      cat8Bold14: cat8Bold14 ?? this.cat8Bold14,
-      cat8Bold16: cat8Bold16 ?? this.cat8Bold16,
-      cat8Bold18: cat8Bold18 ?? this.cat8Bold18,
-      cat8Bold20: cat8Bold20 ?? this.cat8Bold20,
-      cat8Bold24: cat8Bold24 ?? this.cat8Bold24,
-      cat6Medi10: cat6Medi10 ?? this.cat6Medi10,
-      cat6Medi11: cat6Medi11 ?? this.cat6Medi11,
-      cat6Medi12: cat6Medi12 ?? this.cat6Medi12,
-      cat6Medi14: cat6Medi14 ?? this.cat6Medi14,
-      cat6Medi16: cat6Medi16 ?? this.cat6Medi16,
-      cat6Medi18: cat6Medi18 ?? this.cat6Medi18,
-      cat6Medi20: cat6Medi20 ?? this.cat6Medi20,
-      cat6Medi24: cat6Medi24 ?? this.cat6Medi24,
-      cat6Regu10: cat6Regu10 ?? this.cat6Regu10,
-      cat6Regu11: cat6Regu11 ?? this.cat6Regu11,
-      cat6Regu12: cat6Regu12 ?? this.cat6Regu12,
-      cat6Regu14: cat6Regu14 ?? this.cat6Regu14,
-      cat6Regu16: cat6Regu16 ?? this.cat6Regu16,
-      cat6Regu18: cat6Regu18 ?? this.cat6Regu18,
-      cat6Regu20: cat6Regu20 ?? this.cat6Regu20,
-      cat6Regu24: cat6Regu24 ?? this.cat6Regu24,
+      neu8Medi10: neu8Medi10 ?? this.neu8Medi10,
+      neu8Medi11: neu8Medi11 ?? this.neu8Medi11,
+      neu8Medi12: neu8Medi12 ?? this.neu8Medi12,
+      neu8Medi14: neu8Medi14 ?? this.neu8Medi14,
+      neu8Medi16: neu8Medi16 ?? this.neu8Medi16,
+      neu8Medi18: neu8Medi18 ?? this.neu8Medi18,
+      neu8Medi20: neu8Medi20 ?? this.neu8Medi20,
+      neu8Medi24: neu8Medi24 ?? this.neu8Medi24,
+      neu8Regu10: neu8Regu10 ?? this.neu8Regu10,
+      neu8Regu11: neu8Regu11 ?? this.neu8Regu11,
+      neu8Regu12: neu8Regu12 ?? this.neu8Regu12,
+      neu8Regu14: neu8Regu14 ?? this.neu8Regu14,
+      neu8Regu16: neu8Regu16 ?? this.neu8Regu16,
+      neu8Regu18: neu8Regu18 ?? this.neu8Regu18,
+      neu8Regu20: neu8Regu20 ?? this.neu8Regu20,
+      neu8Regu24: neu8Regu24 ?? this.neu8Regu24,
+      neu8Bold10: neu8Bold10 ?? this.neu8Bold10,
+      neu8Bold11: neu8Bold11 ?? this.neu8Bold11,
+      neu8Bold12: neu8Bold12 ?? this.neu8Bold12,
+      neu8Bold14: neu8Bold14 ?? this.neu8Bold14,
+      neu8Bold16: neu8Bold16 ?? this.neu8Bold16,
+      neu8Bold18: neu8Bold18 ?? this.neu8Bold18,
+      neu8Bold20: neu8Bold20 ?? this.neu8Bold20,
+      neu8Bold24: neu8Bold24 ?? this.neu8Bold24,
+      neu6Medi10: neu6Medi10 ?? this.neu6Medi10,
+      neu6Medi11: neu6Medi11 ?? this.neu6Medi11,
+      neu6Medi12: neu6Medi12 ?? this.neu6Medi12,
+      neu6Medi14: neu6Medi14 ?? this.neu6Medi14,
+      neu6Medi16: neu6Medi16 ?? this.neu6Medi16,
+      neu6Medi18: neu6Medi18 ?? this.neu6Medi18,
+      neu6Medi20: neu6Medi20 ?? this.neu6Medi20,
+      neu6Medi24: neu6Medi24 ?? this.neu6Medi24,
+      neu6Regu10: neu6Regu10 ?? this.neu6Regu10,
+      neu6Regu11: neu6Regu11 ?? this.neu6Regu11,
+      neu6Regu12: neu6Regu12 ?? this.neu6Regu12,
+      neu6Regu14: neu6Regu14 ?? this.neu6Regu14,
+      neu6Regu16: neu6Regu16 ?? this.neu6Regu16,
+      neu6Regu18: neu6Regu18 ?? this.neu6Regu18,
+      neu6Regu20: neu6Regu20 ?? this.neu6Regu20,
+      neu6Regu24: neu6Regu24 ?? this.neu6Regu24,
       primaryMedi12: primaryMedi12 ?? this.primaryMedi12,
       primaryMedi14: primaryMedi14 ?? this.primaryMedi14,
       primaryMedi16: primaryMedi16 ?? this.primaryMedi16,
@@ -229,46 +229,46 @@ class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
   AppTextStyleTheme lerp(ThemeExtension<AppTextStyleTheme>? other, double t) {
     if (other is! AppTextStyleTheme) return this;
     return AppTextStyleTheme(
-      cat8Medi10: TextStyle.lerp(cat8Medi10, other.cat8Medi10, t),
-      cat8Medi11: TextStyle.lerp(cat8Medi11, other.cat8Medi11, t),
-      cat8Medi12: TextStyle.lerp(cat8Medi12, other.cat8Medi12, t),
-      cat8Medi14: TextStyle.lerp(cat8Medi14, other.cat8Medi14, t),
-      cat8Medi16: TextStyle.lerp(cat8Medi16, other.cat8Medi16, t),
-      cat8Medi18: TextStyle.lerp(cat8Medi18, other.cat8Medi18, t),
-      cat8Medi20: TextStyle.lerp(cat8Medi20, other.cat8Medi20, t),
-      cat8Medi24: TextStyle.lerp(cat8Medi24, other.cat8Medi24, t),
-      cat8Regu10: TextStyle.lerp(cat8Regu10, other.cat8Regu10, t),
-      cat8Regu11: TextStyle.lerp(cat8Regu11, other.cat8Regu11, t),
-      cat8Regu12: TextStyle.lerp(cat8Regu12, other.cat8Regu12, t),
-      cat8Regu14: TextStyle.lerp(cat8Regu14, other.cat8Regu14, t),
-      cat8Regu16: TextStyle.lerp(cat8Regu16, other.cat8Regu16, t),
-      cat8Regu18: TextStyle.lerp(cat8Regu18, other.cat8Regu18, t),
-      cat8Regu20: TextStyle.lerp(cat8Regu20, other.cat8Regu20, t),
-      cat8Regu24: TextStyle.lerp(cat8Regu24, other.cat8Regu24, t),
-      cat8Bold10: TextStyle.lerp(cat8Bold10, other.cat8Bold10, t),
-      cat8Bold11: TextStyle.lerp(cat8Bold11, other.cat8Bold11, t),
-      cat8Bold12: TextStyle.lerp(cat8Bold12, other.cat8Bold12, t),
-      cat8Bold14: TextStyle.lerp(cat8Bold14, other.cat8Bold14, t),
-      cat8Bold16: TextStyle.lerp(cat8Bold16, other.cat8Bold16, t),
-      cat8Bold18: TextStyle.lerp(cat8Bold18, other.cat8Bold18, t),
-      cat8Bold20: TextStyle.lerp(cat8Bold20, other.cat8Bold20, t),
-      cat8Bold24: TextStyle.lerp(cat8Bold24, other.cat8Bold24, t),
-      cat6Medi10: TextStyle.lerp(cat6Medi10, other.cat6Medi10, t),
-      cat6Medi11: TextStyle.lerp(cat6Medi11, other.cat6Medi11, t),
-      cat6Medi12: TextStyle.lerp(cat6Medi12, other.cat6Medi12, t),
-      cat6Medi14: TextStyle.lerp(cat6Medi14, other.cat6Medi14, t),
-      cat6Medi16: TextStyle.lerp(cat6Medi16, other.cat6Medi16, t),
-      cat6Medi18: TextStyle.lerp(cat6Medi18, other.cat6Medi18, t),
-      cat6Medi20: TextStyle.lerp(cat6Medi20, other.cat6Medi20, t),
-      cat6Medi24: TextStyle.lerp(cat6Medi24, other.cat6Medi24, t),
-      cat6Regu10: TextStyle.lerp(cat6Regu10, other.cat6Regu10, t),
-      cat6Regu11: TextStyle.lerp(cat6Regu11, other.cat6Regu11, t),
-      cat6Regu12: TextStyle.lerp(cat6Regu12, other.cat6Regu12, t),
-      cat6Regu14: TextStyle.lerp(cat6Regu14, other.cat6Regu14, t),
-      cat6Regu16: TextStyle.lerp(cat6Regu16, other.cat6Regu16, t),
-      cat6Regu18: TextStyle.lerp(cat6Regu18, other.cat6Regu18, t),
-      cat6Regu20: TextStyle.lerp(cat6Regu20, other.cat6Regu20, t),
-      cat6Regu24: TextStyle.lerp(cat6Regu24, other.cat6Regu24, t),
+      neu8Medi10: TextStyle.lerp(neu8Medi10, other.neu8Medi10, t),
+      neu8Medi11: TextStyle.lerp(neu8Medi11, other.neu8Medi11, t),
+      neu8Medi12: TextStyle.lerp(neu8Medi12, other.neu8Medi12, t),
+      neu8Medi14: TextStyle.lerp(neu8Medi14, other.neu8Medi14, t),
+      neu8Medi16: TextStyle.lerp(neu8Medi16, other.neu8Medi16, t),
+      neu8Medi18: TextStyle.lerp(neu8Medi18, other.neu8Medi18, t),
+      neu8Medi20: TextStyle.lerp(neu8Medi20, other.neu8Medi20, t),
+      neu8Medi24: TextStyle.lerp(neu8Medi24, other.neu8Medi24, t),
+      neu8Regu10: TextStyle.lerp(neu8Regu10, other.neu8Regu10, t),
+      neu8Regu11: TextStyle.lerp(neu8Regu11, other.neu8Regu11, t),
+      neu8Regu12: TextStyle.lerp(neu8Regu12, other.neu8Regu12, t),
+      neu8Regu14: TextStyle.lerp(neu8Regu14, other.neu8Regu14, t),
+      neu8Regu16: TextStyle.lerp(neu8Regu16, other.neu8Regu16, t),
+      neu8Regu18: TextStyle.lerp(neu8Regu18, other.neu8Regu18, t),
+      neu8Regu20: TextStyle.lerp(neu8Regu20, other.neu8Regu20, t),
+      neu8Regu24: TextStyle.lerp(neu8Regu24, other.neu8Regu24, t),
+      neu8Bold10: TextStyle.lerp(neu8Bold10, other.neu8Bold10, t),
+      neu8Bold11: TextStyle.lerp(neu8Bold11, other.neu8Bold11, t),
+      neu8Bold12: TextStyle.lerp(neu8Bold12, other.neu8Bold12, t),
+      neu8Bold14: TextStyle.lerp(neu8Bold14, other.neu8Bold14, t),
+      neu8Bold16: TextStyle.lerp(neu8Bold16, other.neu8Bold16, t),
+      neu8Bold18: TextStyle.lerp(neu8Bold18, other.neu8Bold18, t),
+      neu8Bold20: TextStyle.lerp(neu8Bold20, other.neu8Bold20, t),
+      neu8Bold24: TextStyle.lerp(neu8Bold24, other.neu8Bold24, t),
+      neu6Medi10: TextStyle.lerp(neu6Medi10, other.neu6Medi10, t),
+      neu6Medi11: TextStyle.lerp(neu6Medi11, other.neu6Medi11, t),
+      neu6Medi12: TextStyle.lerp(neu6Medi12, other.neu6Medi12, t),
+      neu6Medi14: TextStyle.lerp(neu6Medi14, other.neu6Medi14, t),
+      neu6Medi16: TextStyle.lerp(neu6Medi16, other.neu6Medi16, t),
+      neu6Medi18: TextStyle.lerp(neu6Medi18, other.neu6Medi18, t),
+      neu6Medi20: TextStyle.lerp(neu6Medi20, other.neu6Medi20, t),
+      neu6Medi24: TextStyle.lerp(neu6Medi24, other.neu6Medi24, t),
+      neu6Regu10: TextStyle.lerp(neu6Regu10, other.neu6Regu10, t),
+      neu6Regu11: TextStyle.lerp(neu6Regu11, other.neu6Regu11, t),
+      neu6Regu12: TextStyle.lerp(neu6Regu12, other.neu6Regu12, t),
+      neu6Regu14: TextStyle.lerp(neu6Regu14, other.neu6Regu14, t),
+      neu6Regu16: TextStyle.lerp(neu6Regu16, other.neu6Regu16, t),
+      neu6Regu18: TextStyle.lerp(neu6Regu18, other.neu6Regu18, t),
+      neu6Regu20: TextStyle.lerp(neu6Regu20, other.neu6Regu20, t),
+      neu6Regu24: TextStyle.lerp(neu6Regu24, other.neu6Regu24, t),
       primaryMedi12: TextStyle.lerp(primaryMedi12, other.primaryMedi12, t),
       primaryMedi14: TextStyle.lerp(primaryMedi14, other.primaryMedi14, t),
       primaryMedi16: TextStyle.lerp(primaryMedi16, other.primaryMedi16, t),

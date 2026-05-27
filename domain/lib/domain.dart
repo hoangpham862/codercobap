@@ -1,7 +1,7 @@
 library domain;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'base/base.dart';
+export 'repositores/repositores.dart';
+export 'requests/requests.dart';
+export 'entities/entities.dart';
+export 'use_case/use_case.dart';

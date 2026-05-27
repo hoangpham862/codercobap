@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shared/shared.dart';
-import 'package:shared/wigets/scaffold_base.dart';
+//
+export 'bloc/blocs.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -11,12 +12,31 @@ class SplashScreen extends StatelessWidget {
     var textStyle = ThemeProvider.themeOf(context)
         .data
         .extension<AppTextStyleTheme>()
-        ?.cat6Medi24;
+        ?.neu6Medi24;
+
     return ScaffoldBase(
-      body: Center(
-        child: Text(
-          "Cat Manager",
-          style: textStyle?.copyWith(color: Colors.white),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.5,
+                width: MediaQuery.of(context).size.height * 0.5,
+                child: Image(image: AssetImage(AppImageName.splashImage.rsc())),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                "NekoFocus",
+                style: textStyle?.copyWith(fontSize: 30),
+              ),
+              const SizedBox(height: 40),
+              const CustomProgressBar()
+            ],
+          ),
         ),
       ),
     );

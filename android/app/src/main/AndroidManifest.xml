@@ -11,18 +11,19 @@ package="vn.com.codercobap.nekofocus"
         <!-- Declate queriess get list packages installed -->
         <intent>
             <action android:name="android.intent.action.VIEW"/>
-            <category android:name="android.intent.category.BROWSABLE"/>
-            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.BROWSABLE" />
             <data android:scheme="https"/>
-
         </intent>
     </queries>
 
     <application
+        android:usesCleartextTraffic="false"
+        android:requestLegacyExternalStorage="true"
         android:label="NekoFocus"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
+
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"

@@ -8,6 +8,9 @@ AppTheme get light {
     scheme: FlexScheme.mandyRed,
     fontFamily: AppFontConst.aeonik.value,
     useMaterial3: true,
+    primary: const Color(0xff4A6767),
+    secondary: const Color(0xff8BA8A0),
+    tertiary: const Color(0xffE0E7E5),
     extensions: [
       AppColorTheme(
           primaryColor:
