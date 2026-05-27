@@ -2,6 +2,7 @@ name: data
 description: "A new Flutter package project."
 version: 0.0.1
 homepage:
+publish_to: none
 
 environment:
   sdk: ^3.5.4
@@ -14,6 +15,7 @@ dependencies:
 
   domain:
     path: ../domain
+  pigeon: ^26.3.4
 
 dev_dependencies:
   flutter_test:

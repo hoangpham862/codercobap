@@ -26,7 +26,7 @@ class AppRepositoryImplement implements AppRepository {
       _iconCache[packageName] = iconBytes;
       return iconBytes;
     } on PlatformException catch (e) {
-      print("Failed to get app icon: ${e.message}");
+      debugPrint("Failed to get app icon: ${e.message}");
       return null;
     }
   }

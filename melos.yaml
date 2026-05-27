@@ -32,3 +32,7 @@ scripts:
   clean:
     run: melos exec -- "fvm flutter clean"
     description: Clean toàn bộ dự án.
+  # Sinh code Pigeon
+  pigeon:
+    run: ./gen_pigeon.sh
+    description: Sinh code Platform Channel thông qua Pigeon.
