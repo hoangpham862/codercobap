@@ -1,6 +1,6 @@
 library data;
 
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:data/datasource/local/hive/hive_storage_datasource.dart';
 
 export 'datasource/remote/api/api.dart';
 export 'responses/response.dart';
@@ -21,6 +21,6 @@ abstract class Data {
 class _DataImpl extends Data {
   @override
   Future<void> init() async {
-    await Hive.initFlutter();
+    await HiveStorageDatasource().initBox();
   }
 }
