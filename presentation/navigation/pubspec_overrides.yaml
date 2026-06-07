@@ -1,5 +1,9 @@
-# melos_managed_dependency_overrides: features,resources,shared
+# melos_managed_dependency_overrides: data,domain,features,resources,shared
 dependency_overrides:
+  data:
+    path: ../../data
+  domain:
+    path: ../../domain
   features:
     path: ../features
   resources:

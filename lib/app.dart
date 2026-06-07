@@ -11,6 +11,12 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   @override
+  void initState() {
+    super.initState();
+    setupLocator();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ThemeProvider(
         saveThemesOnChange: true,
@@ -20,8 +26,9 @@ class _AppState extends State<App> {
         child: ThemeConsumer(
           child: Builder(builder: (themeContext) {
             return MediaQuery(
-              data: MediaQuery.of(themeContext)
-                  .copyWith(textScaler: const TextScaler.linear(1.0).clamp(minScaleFactor: 0.9, maxScaleFactor: 1.1)),
+              data: MediaQuery.of(themeContext).copyWith(
+                  textScaler: const TextScaler.linear(1.0)
+                      .clamp(minScaleFactor: 0.9, maxScaleFactor: 1.1)),
               child: MaterialApp(
                 builder: (context, child) {
                   return child!;
@@ -33,7 +40,8 @@ class _AppState extends State<App> {
                 localizationsDelegates: themeContext.localizationDelegates,
                 supportedLocales: themeContext.supportedLocales,
                 locale: themeContext.locale,
-                onGenerateRoute: (settings) => NavigationConfig.onGenerateRoute(settings),
+                onGenerateRoute: (settings) =>
+                    NavigationConfig.onGenerateRoute(settings),
               ),
             );
           }),

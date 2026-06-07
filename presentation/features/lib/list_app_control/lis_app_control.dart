@@ -1,6 +1,11 @@
 import 'dart:typed_data';
+import 'package:features/features.dart';
+import 'package:features/list_app_control/bloc/list_app_control_bloc.dart';
+import 'package:features/list_app_control/bloc/list_app_control_event.dart';
+import 'package:features/list_app_control/bloc/list_app_control_state.dart';
 import 'package:flutter/material.dart';
-import 'app_helper_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared/shared.dart';
 
 class ListAppControl extends StatefulWidget {
   const ListAppControl({super.key});
@@ -10,46 +15,29 @@ class ListAppControl extends StatefulWidget {
 }
 
 class _ListAppControlState extends State<ListAppControl> {
-  List<AppInfo> _apps = [];
-  bool _isLoading = true;
-  String _searchQuery = '';
-
+  late ListAppControlBloc _bloc;
+  bool _isNavigating = false;
   @override
   void initState() {
     super.initState();
-    _loadApps();
-  }
-
-  Future<void> _loadApps() async {
-    setState(() {
-      _isLoading = true;
-    });
-    final apps = await AppHelperService.getInstalledApps();
-    // Sắp xếp ứng dụng theo bảng chữ cái
-    apps.sort((a, b) => a.appName.toLowerCase().compareTo(b.appName.toLowerCase()));
-    if (mounted) {
-      setState(() {
-        _apps = apps;
-        _isLoading = false;
-      });
-    }
+    _bloc = ListAppControlBloc()..getAllApp();
   }
 
   @override
   Widget build(BuildContext context) {
-    final filteredApps = _apps.where((app) {
-      final nameMatches = app.appName.toLowerCase().contains(_searchQuery.toLowerCase());
-      final packageMatches = app.packageName.toLowerCase().contains(_searchQuery.toLowerCase());
-      return nameMatches || packageMatches;
-    }).toList();
-
-    return Scaffold(
+    return ScaffoldBase(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Ứng dụng kiểm soát'),
+        backgroundColor: ThemeProvider.themeOf(context)
+            .data
+            .extension<AppColorTheme>()
+            ?.neutralColor
+            .neutralColor9,
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
-            onPressed: _loadApps,
+            onPressed: () {},
           ),
         ],
       ),
@@ -67,126 +55,164 @@ class _ListAppControlState extends State<ListAppControl> {
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
               ),
               onChanged: (value) {
-                setState(() {
-                  _searchQuery = value;
-                });
+                _bloc.add(AppFilterEvent(query: value));
               },
             ),
           ),
-          Expanded(
-            child: _isLoading
-                ? const Center(child: CircularProgressIndicator())
-                : filteredApps.isEmpty
-                    ? const Center(child: Text('Không tìm thấy ứng dụng nào'))
-                    : ListView.builder(
-                        padding: const EdgeInsets.only(bottom: 24),
-                        itemCount: filteredApps.length,
-                        itemBuilder: (context, index) {
-                          final app = filteredApps[index];
-                          return ListTile(
-                            leading: AppIconWidget(packageName: app.packageName),
-                            title: Text(
-                              app.appName,
-                              style: const TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Text(
-                              app.packageName,
-                              style: TextStyle(color: Colors.grey.shade600),
-                            ),
-                            trailing: app.isSystemApp
-                                ? Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.shade100,
-                                      borderRadius: BorderRadius.circular(6),
-                                    ),
-                                    child: Text(
-                                      'Hệ thống',
-                                      style: TextStyle(
-                                        color: Colors.orange.shade800,
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  )
-                                : null,
-                          );
-                        },
-                      ),
-          ),
+          //
+          buildListAppItems(context)
         ],
       ),
     );
   }
-}
 
-class AppIconWidget extends StatefulWidget {
-  final String packageName;
-
-  const AppIconWidget({super.key, required this.packageName});
-
-  @override
-  State<AppIconWidget> createState() => _AppIconWidgetState();
-}
-
-class _AppIconWidgetState extends State<AppIconWidget> {
-  Uint8List? _iconBytes;
-  bool _loaded = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadIcon();
+  ///
+  Widget buildListAppItems(BuildContext context) {
+    var themeProvider = ThemeProvider.themeOf(context).data;
+    return Expanded(
+      child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+          decoration: BoxDecoration(
+            border: Border.all(
+                color: themeProvider
+                        .extension<AppColorTheme>()
+                        ?.neutralColor
+                        .neutralColor9 ??
+                    Colors.transparent),
+            boxShadow: [
+              BoxShadow(
+                  color: themeProvider
+                          .extension<AppColorTheme>()
+                          ?.neutralColor
+                          ?.neutralColor8
+                          .withValues(alpha: 0.1) ??
+                      Colors.transparent,
+                  blurRadius: 5,
+                  spreadRadius: 1)
+            ],
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: BlocBuilder<ListAppControlBloc, BaseState>(
+            bloc: _bloc,
+            builder: (context, state) {
+              final listApp = state is LoadedState<AppFilterEvent>
+                  ? (state.data as List<InstalledApplicationInfo?>)
+                  : <InstalledApplicationInfo?>[];
+              return ListView.builder(
+                  itemCount: listApp.length,
+                  itemBuilder: (context, index) {
+                    return buildItems(context, listApp[index]);
+                  });
+            },
+          )),
+    );
   }
 
-  @override
-  void didUpdateWidget(covariant AppIconWidget oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.packageName != widget.packageName) {
-      _loadIcon();
-    }
-  }
-
-  Future<void> _loadIcon() async {
-    setState(() {
-      _loaded = false;
-      _iconBytes = null;
-    });
-    final bytes = await AppHelperService.getAppIcon(widget.packageName);
-    if (mounted) {
-      setState(() {
-        _iconBytes = bytes;
-        _loaded = true;
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (!_loaded) {
-      return const SizedBox(
-        width: 40,
-        height: 40,
-        child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: CircularProgressIndicator(strokeWidth: 2),
-        ),
-      );
-    }
-
-    if (_iconBytes == null) {
-      return const Icon(Icons.android, size: 40, color: Colors.green);
-    }
-
-    return Image.memory(
-      _iconBytes!,
-      width: 40,
-      height: 40,
-      fit: BoxFit.contain,
-      errorBuilder: (context, error, stackTrace) {
-        return const Icon(Icons.android, size: 40, color: Colors.green);
+  //
+  Widget buildItems(BuildContext context, InstalledApplicationInfo? item) {
+    Uint8List? icon =
+        locator<AppRepository>().getIconForPackage(item?.packageName ?? '');
+    return InkWell(
+      onTap: () async {
+        if (_isNavigating) return;
+        _isNavigating = true;
+        try {
+          await Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => SettingLimitTimeScreen(
+                appName: item?.appName ?? '',
+                packageName: item?.packageName ?? '',
+              ),
+            ),
+          );
+        } finally {
+          _isNavigating = false;
+        }
       },
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        margin: const EdgeInsets.only(bottom: 12),
+        decoration: BoxDecoration(
+            // color: ThemeProvider.themeOf(context)
+            //     .data
+            //     .extension<AppColorTheme>()
+            //     ?.neutralColor
+            //     ?.neutralColor7,
+            // borderRadius: BorderRadius.circular(12),
+            // border: Border.fromBorderSide(
+            //   BorderSide(
+            //     color: ThemeProvider.themeOf(context)
+            //             .data
+            //             .extension<AppColorTheme>()
+            //             ?.neutralColor
+            //             .neutralColor9 ??
+            //         Colors.transparent,
+            //     width: 1,
+            //   ),
+            // ),
+            ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Icon App
+            Row(
+              children: [
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(12)),
+                  child: icon != null
+                      ? Image.memory(
+                          icon,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              color: Colors.grey,
+                              child: const Icon(
+                                Icons.error,
+                                color: Colors.white,
+                              ),
+                            );
+                          },
+                        )
+                      : null,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                //
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(item?.appName ?? '',
+                        style: ThemeProvider.themeOf(context)
+                            .data
+                            .extension<AppTextStyleTheme>()
+                            ?.neu1Bold18),
+                    Text(
+                        item?.isSystemApp == "true" ? 'Hệ thống' : 'Người dùng',
+                        style: ThemeProvider.themeOf(context)
+                            .data
+                            .extension<AppTextStyleTheme>()
+                            ?.neu1Medi14),
+                  ],
+                ),
+              ],
+            ),
+
+            GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {},
+              child: CustomSwitcherButton(
+                value: true,
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
-

@@ -16,8 +16,8 @@ class NeutralColorData {
           neutralColor9: const Color(0xffE1E3E2),
         ),
       AppThemeId.dark => NeutralColor(
-          neutralColor1: const Color(0xffA0ACC2),
-          neutralColor2: const Color(0xffA0ACC2),
+          neutralColor1: const Color(0xffD8E3FB),
+          neutralColor2: const Color(0xffBCC7DE),
           neutralColor3: const Color(0xffA0ACC2),
           neutralColor4: const Color(0xff8691A7),
           neutralColor5: const Color(0xff6C778D),

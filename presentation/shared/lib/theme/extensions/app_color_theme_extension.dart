@@ -6,11 +6,15 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   final SecondaryColor secondaryColor;
   final NeutralColor neutralColor;
   final TertiaryColor tertiaryColor;
+
+  final Color activeSwitcherColor;
+
   AppColorTheme({
     required this.primaryColor,
     required this.secondaryColor,
     required this.neutralColor,
     required this.tertiaryColor,
+    required this.activeSwitcherColor,
   });
 
   @override
@@ -19,12 +23,14 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     SecondaryColor? secondaryColor,
     NeutralColor? neutralColor,
     TertiaryColor? tertiaryColor,
+    Color? activeSwitcherColor,
   }) {
     return AppColorTheme(
       primaryColor: primaryColor ?? this.primaryColor,
       secondaryColor: secondaryColor ?? this.secondaryColor,
       neutralColor: neutralColor ?? this.neutralColor,
       tertiaryColor: tertiaryColor ?? this.tertiaryColor,
+      activeSwitcherColor: activeSwitcherColor ?? this.activeSwitcherColor,
     );
   }
 
@@ -33,6 +39,8 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       ThemeExtension<AppColorTheme>? other, double t) {
     if (other is! AppColorTheme) return this;
     return AppColorTheme(
+      activeSwitcherColor:
+          Color.lerp(activeSwitcherColor, other.activeSwitcherColor, t)!,
       primaryColor: PrimaryColor(
         primaryColor1: Color.lerp(
             primaryColor.primaryColor1, other.primaryColor.primaryColor1, t)!,

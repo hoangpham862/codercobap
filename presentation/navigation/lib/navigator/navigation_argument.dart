@@ -1,4 +1,8 @@
-class NavigationArgument {
-  static const String splashScreen = "/splash-screen";
-  static const String listAppControl = "/list-app-control";
+class NavigationArgument {}
+
+class SettingLimitTimeScreenArguments {
+  final String? packageName;
+  final String? appName;
+
+  SettingLimitTimeScreenArguments({this.packageName, this.appName});
 }

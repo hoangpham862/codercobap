@@ -41,6 +41,10 @@ dependencies:
   features:
     path: ./presentation/features
   get_it: ^9.2.1
+  domain:
+    path: ./domain
+  data:
+    path: ./data
 
 dev_dependencies:
   flutter_test:

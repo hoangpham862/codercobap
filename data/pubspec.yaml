@@ -15,12 +15,16 @@ dependencies:
 
   domain:
     path: ../domain
-  pigeon: ^26.3.4
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  pigeon: 22.7.2
+  hive_generator: 2.0.1
+  build_runner: ^2.4.8
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -7,3 +7,5 @@ class CustomProgressBarEvent extends SplashScreenEvent {
 
   CustomProgressBarEvent({this.percent});
 }
+
+

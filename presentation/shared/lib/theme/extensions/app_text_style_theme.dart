@@ -1,49 +1,49 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
-  ///neu8
-  final TextStyle? neu8Medi10;
-  final TextStyle? neu8Medi11;
-  final TextStyle? neu8Medi12;
-  final TextStyle? neu8Medi14;
-  final TextStyle? neu8Medi16;
-  final TextStyle? neu8Medi18;
-  final TextStyle? neu8Medi20;
-  final TextStyle? neu8Medi24;
-  final TextStyle? neu8Regu10;
-  final TextStyle? neu8Regu11;
-  final TextStyle? neu8Regu12;
-  final TextStyle? neu8Regu14;
-  final TextStyle? neu8Regu16;
-  final TextStyle? neu8Regu18;
-  final TextStyle? neu8Regu20;
-  final TextStyle? neu8Regu24;
-  final TextStyle? neu8Bold10;
-  final TextStyle? neu8Bold11;
-  final TextStyle? neu8Bold12;
-  final TextStyle? neu8Bold14;
-  final TextStyle? neu8Bold16;
-  final TextStyle? neu8Bold18;
-  final TextStyle? neu8Bold20;
-  final TextStyle? neu8Bold24;
+  ///neu1
+  final TextStyle? neu1Medi10;
+  final TextStyle? neu1Medi11;
+  final TextStyle? neu1Medi12;
+  final TextStyle? neu1Medi14;
+  final TextStyle? neu1Medi16;
+  final TextStyle? neu1Medi18;
+  final TextStyle? neu1Medi20;
+  final TextStyle? neu1Medi24;
+  final TextStyle? neu1Regu10;
+  final TextStyle? neu1Regu11;
+  final TextStyle? neu1Regu12;
+  final TextStyle? neu1Regu14;
+  final TextStyle? neu1Regu16;
+  final TextStyle? neu1Regu18;
+  final TextStyle? neu1Regu20;
+  final TextStyle? neu1Regu24;
+  final TextStyle? neu1Bold10;
+  final TextStyle? neu1Bold11;
+  final TextStyle? neu1Bold12;
+  final TextStyle? neu1Bold14;
+  final TextStyle? neu1Bold16;
+  final TextStyle? neu1Bold18;
+  final TextStyle? neu1Bold20;
+  final TextStyle? neu1Bold24;
 
-  ///neu6
-  final TextStyle? neu6Medi10;
-  final TextStyle? neu6Medi11;
-  final TextStyle? neu6Medi12;
-  final TextStyle? neu6Medi14;
-  final TextStyle? neu6Medi16;
-  final TextStyle? neu6Medi18;
-  final TextStyle? neu6Medi20;
-  final TextStyle? neu6Medi24;
-  final TextStyle? neu6Regu10;
-  final TextStyle? neu6Regu11;
-  final TextStyle? neu6Regu12;
-  final TextStyle? neu6Regu14;
-  final TextStyle? neu6Regu16;
-  final TextStyle? neu6Regu18;
-  final TextStyle? neu6Regu20;
-  final TextStyle? neu6Regu24;
+  ///neu2
+  final TextStyle? neu2Medi10;
+  final TextStyle? neu2Medi11;
+  final TextStyle? neu2Medi12;
+  final TextStyle? neu2Medi14;
+  final TextStyle? neu2Medi16;
+  final TextStyle? neu2Medi18;
+  final TextStyle? neu2Medi20;
+  final TextStyle? neu2Medi24;
+  final TextStyle? neu2Regu10;
+  final TextStyle? neu2Regu11;
+  final TextStyle? neu2Regu12;
+  final TextStyle? neu2Regu14;
+  final TextStyle? neu2Regu16;
+  final TextStyle? neu2Regu18;
+  final TextStyle? neu2Regu20;
+  final TextStyle? neu2Regu24;
 
   ///Primary
   final TextStyle? primaryMedi12;
@@ -60,46 +60,46 @@ class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
   final TextStyle? onPrimaryRegu16;
 
   const AppTextStyleTheme({
-    this.neu8Medi10,
-    this.neu8Medi11,
-    this.neu8Medi12,
-    this.neu8Medi14,
-    this.neu8Medi16,
-    this.neu8Medi18,
-    this.neu8Medi20,
-    this.neu8Medi24,
-    this.neu8Regu10,
-    this.neu8Regu11,
-    this.neu8Regu12,
-    this.neu8Regu14,
-    this.neu8Regu16,
-    this.neu8Regu18,
-    this.neu8Regu20,
-    this.neu8Regu24,
-    this.neu8Bold10,
-    this.neu8Bold11,
-    this.neu8Bold12,
-    this.neu8Bold14,
-    this.neu8Bold16,
-    this.neu8Bold18,
-    this.neu8Bold20,
-    this.neu8Bold24,
-    this.neu6Medi10,
-    this.neu6Medi11,
-    this.neu6Medi12,
-    this.neu6Medi14,
-    this.neu6Medi16,
-    this.neu6Medi18,
-    this.neu6Medi20,
-    this.neu6Medi24,
-    this.neu6Regu10,
-    this.neu6Regu11,
-    this.neu6Regu12,
-    this.neu6Regu14,
-    this.neu6Regu16,
-    this.neu6Regu18,
-    this.neu6Regu20,
-    this.neu6Regu24,
+    this.neu1Medi10,
+    this.neu1Medi11,
+    this.neu1Medi12,
+    this.neu1Medi14,
+    this.neu1Medi16,
+    this.neu1Medi18,
+    this.neu1Medi20,
+    this.neu1Medi24,
+    this.neu1Regu10,
+    this.neu1Regu11,
+    this.neu1Regu12,
+    this.neu1Regu14,
+    this.neu1Regu16,
+    this.neu1Regu18,
+    this.neu1Regu20,
+    this.neu1Regu24,
+    this.neu1Bold10,
+    this.neu1Bold11,
+    this.neu1Bold12,
+    this.neu1Bold14,
+    this.neu1Bold16,
+    this.neu1Bold18,
+    this.neu1Bold20,
+    this.neu1Bold24,
+    this.neu2Medi10,
+    this.neu2Medi11,
+    this.neu2Medi12,
+    this.neu2Medi14,
+    this.neu2Medi16,
+    this.neu2Medi18,
+    this.neu2Medi20,
+    this.neu2Medi24,
+    this.neu2Regu10,
+    this.neu2Regu11,
+    this.neu2Regu12,
+    this.neu2Regu14,
+    this.neu2Regu16,
+    this.neu2Regu18,
+    this.neu2Regu20,
+    this.neu2Regu24,
     this.primaryMedi12,
     this.primaryMedi14,
     this.primaryMedi16,
@@ -116,46 +116,46 @@ class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
 
   @override
   ThemeExtension<AppTextStyleTheme> copyWith({
-    TextStyle? neu8Medi10,
-    TextStyle? neu8Medi11,
-    TextStyle? neu8Medi12,
-    TextStyle? neu8Medi14,
-    TextStyle? neu8Medi16,
-    TextStyle? neu8Medi18,
-    TextStyle? neu8Medi20,
-    TextStyle? neu8Medi24,
-    TextStyle? neu8Regu10,
-    TextStyle? neu8Regu11,
-    TextStyle? neu8Regu12,
-    TextStyle? neu8Regu14,
-    TextStyle? neu8Regu16,
-    TextStyle? neu8Regu18,
-    TextStyle? neu8Regu20,
-    TextStyle? neu8Regu24,
-    TextStyle? neu8Bold10,
-    TextStyle? neu8Bold11,
-    TextStyle? neu8Bold12,
-    TextStyle? neu8Bold14,
-    TextStyle? neu8Bold16,
-    TextStyle? neu8Bold18,
-    TextStyle? neu8Bold20,
-    TextStyle? neu8Bold24,
-    TextStyle? neu6Medi10,
-    TextStyle? neu6Medi11,
-    TextStyle? neu6Medi12,
-    TextStyle? neu6Medi14,
-    TextStyle? neu6Medi16,
-    TextStyle? neu6Medi18,
-    TextStyle? neu6Medi20,
-    TextStyle? neu6Medi24,
-    TextStyle? neu6Regu10,
-    TextStyle? neu6Regu11,
-    TextStyle? neu6Regu12,
-    TextStyle? neu6Regu14,
-    TextStyle? neu6Regu16,
-    TextStyle? neu6Regu18,
-    TextStyle? neu6Regu20,
-    TextStyle? neu6Regu24,
+    TextStyle? neu1Medi10,
+    TextStyle? neu1Medi11,
+    TextStyle? neu1Medi12,
+    TextStyle? neu1Medi14,
+    TextStyle? neu1Medi16,
+    TextStyle? neu1Medi18,
+    TextStyle? neu1Medi20,
+    TextStyle? neu1Medi24,
+    TextStyle? neu1Regu10,
+    TextStyle? neu1Regu11,
+    TextStyle? neu1Regu12,
+    TextStyle? neu1Regu14,
+    TextStyle? neu1Regu16,
+    TextStyle? neu1Regu18,
+    TextStyle? neu1Regu20,
+    TextStyle? neu1Regu24,
+    TextStyle? neu1Bold10,
+    TextStyle? neu1Bold11,
+    TextStyle? neu1Bold12,
+    TextStyle? neu1Bold14,
+    TextStyle? neu1Bold16,
+    TextStyle? neu1Bold18,
+    TextStyle? neu1Bold20,
+    TextStyle? neu1Bold24,
+    TextStyle? neu2Medi10,
+    TextStyle? neu2Medi11,
+    TextStyle? neu2Medi12,
+    TextStyle? neu2Medi14,
+    TextStyle? neu2Medi16,
+    TextStyle? neu2Medi18,
+    TextStyle? neu2Medi20,
+    TextStyle? neu2Medi24,
+    TextStyle? neu2Regu10,
+    TextStyle? neu2Regu11,
+    TextStyle? neu2Regu12,
+    TextStyle? neu2Regu14,
+    TextStyle? neu2Regu16,
+    TextStyle? neu2Regu18,
+    TextStyle? neu2Regu20,
+    TextStyle? neu2Regu24,
     TextStyle? primaryMedi12,
     TextStyle? primaryMedi14,
     TextStyle? primaryMedi16,
@@ -170,46 +170,46 @@ class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
     TextStyle? onPrimaryRegu16,
   }) {
     return AppTextStyleTheme(
-      neu8Medi10: neu8Medi10 ?? this.neu8Medi10,
-      neu8Medi11: neu8Medi11 ?? this.neu8Medi11,
-      neu8Medi12: neu8Medi12 ?? this.neu8Medi12,
-      neu8Medi14: neu8Medi14 ?? this.neu8Medi14,
-      neu8Medi16: neu8Medi16 ?? this.neu8Medi16,
-      neu8Medi18: neu8Medi18 ?? this.neu8Medi18,
-      neu8Medi20: neu8Medi20 ?? this.neu8Medi20,
-      neu8Medi24: neu8Medi24 ?? this.neu8Medi24,
-      neu8Regu10: neu8Regu10 ?? this.neu8Regu10,
-      neu8Regu11: neu8Regu11 ?? this.neu8Regu11,
-      neu8Regu12: neu8Regu12 ?? this.neu8Regu12,
-      neu8Regu14: neu8Regu14 ?? this.neu8Regu14,
-      neu8Regu16: neu8Regu16 ?? this.neu8Regu16,
-      neu8Regu18: neu8Regu18 ?? this.neu8Regu18,
-      neu8Regu20: neu8Regu20 ?? this.neu8Regu20,
-      neu8Regu24: neu8Regu24 ?? this.neu8Regu24,
-      neu8Bold10: neu8Bold10 ?? this.neu8Bold10,
-      neu8Bold11: neu8Bold11 ?? this.neu8Bold11,
-      neu8Bold12: neu8Bold12 ?? this.neu8Bold12,
-      neu8Bold14: neu8Bold14 ?? this.neu8Bold14,
-      neu8Bold16: neu8Bold16 ?? this.neu8Bold16,
-      neu8Bold18: neu8Bold18 ?? this.neu8Bold18,
-      neu8Bold20: neu8Bold20 ?? this.neu8Bold20,
-      neu8Bold24: neu8Bold24 ?? this.neu8Bold24,
-      neu6Medi10: neu6Medi10 ?? this.neu6Medi10,
-      neu6Medi11: neu6Medi11 ?? this.neu6Medi11,
-      neu6Medi12: neu6Medi12 ?? this.neu6Medi12,
-      neu6Medi14: neu6Medi14 ?? this.neu6Medi14,
-      neu6Medi16: neu6Medi16 ?? this.neu6Medi16,
-      neu6Medi18: neu6Medi18 ?? this.neu6Medi18,
-      neu6Medi20: neu6Medi20 ?? this.neu6Medi20,
-      neu6Medi24: neu6Medi24 ?? this.neu6Medi24,
-      neu6Regu10: neu6Regu10 ?? this.neu6Regu10,
-      neu6Regu11: neu6Regu11 ?? this.neu6Regu11,
-      neu6Regu12: neu6Regu12 ?? this.neu6Regu12,
-      neu6Regu14: neu6Regu14 ?? this.neu6Regu14,
-      neu6Regu16: neu6Regu16 ?? this.neu6Regu16,
-      neu6Regu18: neu6Regu18 ?? this.neu6Regu18,
-      neu6Regu20: neu6Regu20 ?? this.neu6Regu20,
-      neu6Regu24: neu6Regu24 ?? this.neu6Regu24,
+      neu1Medi10: neu1Medi10 ?? this.neu1Medi10,
+      neu1Medi11: neu1Medi11 ?? this.neu1Medi11,
+      neu1Medi12: neu1Medi12 ?? this.neu1Medi12,
+      neu1Medi14: neu1Medi14 ?? this.neu1Medi14,
+      neu1Medi16: neu1Medi16 ?? this.neu1Medi16,
+      neu1Medi18: neu1Medi18 ?? this.neu1Medi18,
+      neu1Medi20: neu1Medi20 ?? this.neu1Medi20,
+      neu1Medi24: neu1Medi24 ?? this.neu1Medi24,
+      neu1Regu10: neu1Regu10 ?? this.neu1Regu10,
+      neu1Regu11: neu1Regu11 ?? this.neu1Regu11,
+      neu1Regu12: neu1Regu12 ?? this.neu1Regu12,
+      neu1Regu14: neu1Regu14 ?? this.neu1Regu14,
+      neu1Regu16: neu1Regu16 ?? this.neu1Regu16,
+      neu1Regu18: neu1Regu18 ?? this.neu1Regu18,
+      neu1Regu20: neu1Regu20 ?? this.neu1Regu20,
+      neu1Regu24: neu1Regu24 ?? this.neu1Regu24,
+      neu1Bold10: neu1Bold10 ?? this.neu1Bold10,
+      neu1Bold11: neu1Bold11 ?? this.neu1Bold11,
+      neu1Bold12: neu1Bold12 ?? this.neu1Bold12,
+      neu1Bold14: neu1Bold14 ?? this.neu1Bold14,
+      neu1Bold16: neu1Bold16 ?? this.neu1Bold16,
+      neu1Bold18: neu1Bold18 ?? this.neu1Bold18,
+      neu1Bold20: neu1Bold20 ?? this.neu1Bold20,
+      neu1Bold24: neu1Bold24 ?? this.neu1Bold24,
+      neu2Medi10: neu2Medi10 ?? this.neu2Medi10,
+      neu2Medi11: neu2Medi11 ?? this.neu2Medi11,
+      neu2Medi12: neu2Medi12 ?? this.neu2Medi12,
+      neu2Medi14: neu2Medi14 ?? this.neu2Medi14,
+      neu2Medi16: neu2Medi16 ?? this.neu2Medi16,
+      neu2Medi18: neu2Medi18 ?? this.neu2Medi18,
+      neu2Medi20: neu2Medi20 ?? this.neu2Medi20,
+      neu2Medi24: neu2Medi24 ?? this.neu2Medi24,
+      neu2Regu10: neu2Regu10 ?? this.neu2Regu10,
+      neu2Regu11: neu2Regu11 ?? this.neu2Regu11,
+      neu2Regu12: neu2Regu12 ?? this.neu2Regu12,
+      neu2Regu14: neu2Regu14 ?? this.neu2Regu14,
+      neu2Regu16: neu2Regu16 ?? this.neu2Regu16,
+      neu2Regu18: neu2Regu18 ?? this.neu2Regu18,
+      neu2Regu20: neu2Regu20 ?? this.neu2Regu20,
+      neu2Regu24: neu2Regu24 ?? this.neu2Regu24,
       primaryMedi12: primaryMedi12 ?? this.primaryMedi12,
       primaryMedi14: primaryMedi14 ?? this.primaryMedi14,
       primaryMedi16: primaryMedi16 ?? this.primaryMedi16,
@@ -229,46 +229,46 @@ class AppTextStyleTheme extends ThemeExtension<AppTextStyleTheme> {
   AppTextStyleTheme lerp(ThemeExtension<AppTextStyleTheme>? other, double t) {
     if (other is! AppTextStyleTheme) return this;
     return AppTextStyleTheme(
-      neu8Medi10: TextStyle.lerp(neu8Medi10, other.neu8Medi10, t),
-      neu8Medi11: TextStyle.lerp(neu8Medi11, other.neu8Medi11, t),
-      neu8Medi12: TextStyle.lerp(neu8Medi12, other.neu8Medi12, t),
-      neu8Medi14: TextStyle.lerp(neu8Medi14, other.neu8Medi14, t),
-      neu8Medi16: TextStyle.lerp(neu8Medi16, other.neu8Medi16, t),
-      neu8Medi18: TextStyle.lerp(neu8Medi18, other.neu8Medi18, t),
-      neu8Medi20: TextStyle.lerp(neu8Medi20, other.neu8Medi20, t),
-      neu8Medi24: TextStyle.lerp(neu8Medi24, other.neu8Medi24, t),
-      neu8Regu10: TextStyle.lerp(neu8Regu10, other.neu8Regu10, t),
-      neu8Regu11: TextStyle.lerp(neu8Regu11, other.neu8Regu11, t),
-      neu8Regu12: TextStyle.lerp(neu8Regu12, other.neu8Regu12, t),
-      neu8Regu14: TextStyle.lerp(neu8Regu14, other.neu8Regu14, t),
-      neu8Regu16: TextStyle.lerp(neu8Regu16, other.neu8Regu16, t),
-      neu8Regu18: TextStyle.lerp(neu8Regu18, other.neu8Regu18, t),
-      neu8Regu20: TextStyle.lerp(neu8Regu20, other.neu8Regu20, t),
-      neu8Regu24: TextStyle.lerp(neu8Regu24, other.neu8Regu24, t),
-      neu8Bold10: TextStyle.lerp(neu8Bold10, other.neu8Bold10, t),
-      neu8Bold11: TextStyle.lerp(neu8Bold11, other.neu8Bold11, t),
-      neu8Bold12: TextStyle.lerp(neu8Bold12, other.neu8Bold12, t),
-      neu8Bold14: TextStyle.lerp(neu8Bold14, other.neu8Bold14, t),
-      neu8Bold16: TextStyle.lerp(neu8Bold16, other.neu8Bold16, t),
-      neu8Bold18: TextStyle.lerp(neu8Bold18, other.neu8Bold18, t),
-      neu8Bold20: TextStyle.lerp(neu8Bold20, other.neu8Bold20, t),
-      neu8Bold24: TextStyle.lerp(neu8Bold24, other.neu8Bold24, t),
-      neu6Medi10: TextStyle.lerp(neu6Medi10, other.neu6Medi10, t),
-      neu6Medi11: TextStyle.lerp(neu6Medi11, other.neu6Medi11, t),
-      neu6Medi12: TextStyle.lerp(neu6Medi12, other.neu6Medi12, t),
-      neu6Medi14: TextStyle.lerp(neu6Medi14, other.neu6Medi14, t),
-      neu6Medi16: TextStyle.lerp(neu6Medi16, other.neu6Medi16, t),
-      neu6Medi18: TextStyle.lerp(neu6Medi18, other.neu6Medi18, t),
-      neu6Medi20: TextStyle.lerp(neu6Medi20, other.neu6Medi20, t),
-      neu6Medi24: TextStyle.lerp(neu6Medi24, other.neu6Medi24, t),
-      neu6Regu10: TextStyle.lerp(neu6Regu10, other.neu6Regu10, t),
-      neu6Regu11: TextStyle.lerp(neu6Regu11, other.neu6Regu11, t),
-      neu6Regu12: TextStyle.lerp(neu6Regu12, other.neu6Regu12, t),
-      neu6Regu14: TextStyle.lerp(neu6Regu14, other.neu6Regu14, t),
-      neu6Regu16: TextStyle.lerp(neu6Regu16, other.neu6Regu16, t),
-      neu6Regu18: TextStyle.lerp(neu6Regu18, other.neu6Regu18, t),
-      neu6Regu20: TextStyle.lerp(neu6Regu20, other.neu6Regu20, t),
-      neu6Regu24: TextStyle.lerp(neu6Regu24, other.neu6Regu24, t),
+      neu1Medi10: TextStyle.lerp(neu1Medi10, other.neu1Medi10, t),
+      neu1Medi11: TextStyle.lerp(neu1Medi11, other.neu1Medi11, t),
+      neu1Medi12: TextStyle.lerp(neu1Medi12, other.neu1Medi12, t),
+      neu1Medi14: TextStyle.lerp(neu1Medi14, other.neu1Medi14, t),
+      neu1Medi16: TextStyle.lerp(neu1Medi16, other.neu1Medi16, t),
+      neu1Medi18: TextStyle.lerp(neu1Medi18, other.neu1Medi18, t),
+      neu1Medi20: TextStyle.lerp(neu1Medi20, other.neu1Medi20, t),
+      neu1Medi24: TextStyle.lerp(neu1Medi24, other.neu1Medi24, t),
+      neu1Regu10: TextStyle.lerp(neu1Regu10, other.neu1Regu10, t),
+      neu1Regu11: TextStyle.lerp(neu1Regu11, other.neu1Regu11, t),
+      neu1Regu12: TextStyle.lerp(neu1Regu12, other.neu1Regu12, t),
+      neu1Regu14: TextStyle.lerp(neu1Regu14, other.neu1Regu14, t),
+      neu1Regu16: TextStyle.lerp(neu1Regu16, other.neu1Regu16, t),
+      neu1Regu18: TextStyle.lerp(neu1Regu18, other.neu1Regu18, t),
+      neu1Regu20: TextStyle.lerp(neu1Regu20, other.neu1Regu20, t),
+      neu1Regu24: TextStyle.lerp(neu1Regu24, other.neu1Regu24, t),
+      neu1Bold10: TextStyle.lerp(neu1Bold10, other.neu1Bold10, t),
+      neu1Bold11: TextStyle.lerp(neu1Bold11, other.neu1Bold11, t),
+      neu1Bold12: TextStyle.lerp(neu1Bold12, other.neu1Bold12, t),
+      neu1Bold14: TextStyle.lerp(neu1Bold14, other.neu1Bold14, t),
+      neu1Bold16: TextStyle.lerp(neu1Bold16, other.neu1Bold16, t),
+      neu1Bold18: TextStyle.lerp(neu1Bold18, other.neu1Bold18, t),
+      neu1Bold20: TextStyle.lerp(neu1Bold20, other.neu1Bold20, t),
+      neu1Bold24: TextStyle.lerp(neu1Bold24, other.neu1Bold24, t),
+      neu2Medi10: TextStyle.lerp(neu2Medi10, other.neu2Medi10, t),
+      neu2Medi11: TextStyle.lerp(neu2Medi11, other.neu2Medi11, t),
+      neu2Medi12: TextStyle.lerp(neu2Medi12, other.neu2Medi12, t),
+      neu2Medi14: TextStyle.lerp(neu2Medi14, other.neu2Medi14, t),
+      neu2Medi16: TextStyle.lerp(neu2Medi16, other.neu2Medi16, t),
+      neu2Medi18: TextStyle.lerp(neu2Medi18, other.neu2Medi18, t),
+      neu2Medi20: TextStyle.lerp(neu2Medi20, other.neu2Medi20, t),
+      neu2Medi24: TextStyle.lerp(neu2Medi24, other.neu2Medi24, t),
+      neu2Regu10: TextStyle.lerp(neu2Regu10, other.neu2Regu10, t),
+      neu2Regu11: TextStyle.lerp(neu2Regu11, other.neu2Regu11, t),
+      neu2Regu12: TextStyle.lerp(neu2Regu12, other.neu2Regu12, t),
+      neu2Regu14: TextStyle.lerp(neu2Regu14, other.neu2Regu14, t),
+      neu2Regu16: TextStyle.lerp(neu2Regu16, other.neu2Regu16, t),
+      neu2Regu18: TextStyle.lerp(neu2Regu18, other.neu2Regu18, t),
+      neu2Regu20: TextStyle.lerp(neu2Regu20, other.neu2Regu20, t),
+      neu2Regu24: TextStyle.lerp(neu2Regu24, other.neu2Regu24, t),
       primaryMedi12: TextStyle.lerp(primaryMedi12, other.primaryMedi12, t),
       primaryMedi14: TextStyle.lerp(primaryMedi14, other.primaryMedi14, t),
       primaryMedi16: TextStyle.lerp(primaryMedi16, other.primaryMedi16, t),

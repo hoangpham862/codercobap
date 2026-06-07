@@ -1,5 +1,5 @@
-import 'package:features/splash_screen/splash_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:features/features.dart';
+
 import 'package:flutter/material.dart';
 import 'package:navigation/navigator/navigation_const.dart';
 
@@ -9,7 +9,9 @@ class NavigationConfig {
       case NavigationConst.splashScreen:
         return _buildRoute(settings, const SplashScreen());
       case NavigationConst.home:
-        return _buildRoute(settings, Container());
+        return _buildRoute(settings, const ListAppControl());
+      case NavigationConst.settingLimitTime:
+        return _buildRoute(settings, const SettingLimitTimeScreen());
       default:
         return _buildRoute(settings, Container());
     }
@@ -20,6 +22,9 @@ class NavigationConfig {
     Widget view, {
     bool fullScreenDialog = false,
   }) {
-    return MaterialPageRoute(builder: (context) => view, settings: setting, fullscreenDialog: fullScreenDialog);
+    return MaterialPageRoute(
+        builder: (context) => view,
+        settings: setting,
+        fullscreenDialog: fullScreenDialog);
   }
 }

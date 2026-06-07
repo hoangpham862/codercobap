@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
 class CustomProgressBar extends StatefulWidget {
-  const CustomProgressBar({super.key});
+  const CustomProgressBar({super.key, this.progress = 0.0});
+
+  final double progress;
 
   @override
   State<CustomProgressBar> createState() => _CustomProgressBarState();
@@ -13,8 +15,7 @@ class _CustomProgressBarState extends State<CustomProgressBar> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       double maxWidth = constraints.maxWidth;
-      double progress = 0.7;
-      double currentProgressWidth = maxWidth * progress;
+      double currentProgressWidth = maxWidth * widget.progress;
       return Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.centerLeft,

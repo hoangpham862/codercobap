@@ -1,5 +1,9 @@
-# melos_managed_dependency_overrides: navigation,resources,shared
+# melos_managed_dependency_overrides: data,domain,navigation,resources,shared
 dependency_overrides:
+  data:
+    path: ../../data
+  domain:
+    path: ../../domain
   navigation:
     path: ../navigation
   resources:

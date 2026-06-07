@@ -12,3 +12,6 @@ export 'package:easy_localization_loader/easy_localization_loader.dart';
 export 'helper/helper.dart';
 export 'wigets/widgets.dart';
 export 'package:flutter_svg/flutter_svg.dart';
+export 'package:domain/domain.dart';
+export 'package:data/data.dart';
+export 'util/utils.dart';

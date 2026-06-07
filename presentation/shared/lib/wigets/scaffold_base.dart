@@ -67,9 +67,8 @@ class ScaffoldBase extends StatelessWidget {
       canPop: doubleBack2Pop,
       onPopInvokedWithResult: (didPop, result) {
         if (didPop) {
-          result;
+          return;
         }
-        if (doubleBack2Pop) {}
         if (Navigator.of(context).canPop()) {
           Navigator.of(context).pop();
         }
@@ -77,7 +76,9 @@ class ScaffoldBase extends StatelessWidget {
       child: Scaffold(
         body: SafeArea(child: body ?? const SizedBox.shrink()),
         key: key,
-        appBar: appBar,
+        appBar: titleAppBar != null
+            ? _AppBarDefault(context, title: titleAppBar ?? '')
+            : appBar,
         floatingActionButton: floatingActionButton,
         floatingActionButtonLocation: floatingActionButtonLocation,
         floatingActionButtonAnimator: floatingActionButtonAnimator,
@@ -90,8 +91,9 @@ class ScaffoldBase extends StatelessWidget {
         backgroundColor: backgroundColor ??
             ThemeProvider.themeOf(context)
                 .data
-                .extension<NeutralColor>()
-                ?.neutralColor9,
+                .extension<AppColorTheme>()
+                ?.neutralColor
+                .neutralColor9,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         primary: primary,
         drawerDragStartBehavior: drawerDragStartBehavior,
@@ -106,4 +108,23 @@ class ScaffoldBase extends StatelessWidget {
       ),
     );
   }
+}
+
+class _AppBarDefault extends AppBar {
+  _AppBarDefault(
+    BuildContext context, {
+    required String title,
+  }) : super(
+          title: Text(title,
+              style: ThemeProvider.themeOf(context)
+                  .data
+                  .extension<AppTextStyleTheme>()
+                  ?.neu1Bold18),
+          leading: CommonFunction.buildBackButton(context),
+          backgroundColor:
+              ThemeProvider.themeOf(context).data.colorScheme.surface,
+          centerTitle: true,
+          titleSpacing: 0,
+          elevation: 0,
+        );
 }
