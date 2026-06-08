@@ -5,12 +5,14 @@ class AppLimitConfig {
   final String? limitMinutes;
   final bool? applyAllDays;
   final bool? applyWeekendOnly;
+  final bool? isLocked;
 
   AppLimitConfig(
       {this.package,
       this.limitMinutes,
       this.applyAllDays,
-      this.applyWeekendOnly});
+      this.applyWeekendOnly,
+      this.isLocked});
 
   Map<String, dynamic> toJson() {
     return {
@@ -18,6 +20,16 @@ class AppLimitConfig {
       "limitMinutes": limitMinutes,
       "applyAllDays": applyAllDays,
       "applyWeekendOnly": applyWeekendOnly,
+      "isLocked": isLocked,
     };
+  }
+
+  factory AppLimitConfig.fromJson(Map<String, dynamic> json) {
+    return AppLimitConfig(
+        package: json['package'],
+        limitMinutes: json['limitMinutes'],
+        applyAllDays: json['applyAllDays'],
+        applyWeekendOnly: json['applyWeekendOnly'],
+        isLocked: json['isLocked']);
   }
 }

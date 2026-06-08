@@ -14,6 +14,7 @@ class _AppState extends State<App> {
   void initState() {
     super.initState();
     setupLocator();
+    Data.instance.init();
   }
 
   @override

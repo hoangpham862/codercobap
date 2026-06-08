@@ -16,3 +16,9 @@ class ChangeTimeLimitEvent extends SettingLimitTimeEvent {
   final int minutes;
   ChangeTimeLimitEvent({required this.minutes});
 }
+
+//
+class EnableLockAppEvent extends SettingLimitTimeEvent {
+  final bool? isLocked;
+  EnableLockAppEvent({this.isLocked});
+}

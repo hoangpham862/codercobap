@@ -43,10 +43,7 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
   Widget build(BuildContext context) {
     final theme = ThemeProvider.themeOf(context).data;
     final neutralColor = theme.extension<AppColorTheme>()?.neutralColor;
-
-    Uint8List? appIcon = widget.packageName != null
-        ? locator<AppRepository>().getIconForPackage(widget.packageName!)
-        : null;
+    final tertiaryColor = theme.extension<AppColorTheme>()?.tertiaryColor;
 
     return ScaffoldBase(
       appBar: AppBar(
@@ -80,48 +77,73 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // App Icon Container
-            Container(
-              width: 72,
-              height: 72,
-              decoration: BoxDecoration(
-                color: const Color(0xffFFF3EE),
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.05),
-                    blurRadius: 10,
-                    spreadRadius: 2,
-                  ),
-                ],
-              ),
-              padding: const EdgeInsets.all(12),
-              child: appIcon != null
-                  ? Image.memory(
-                      appIcon,
-                      fit: BoxFit.contain,
-                    )
-                  : Icon(
-                      Icons.android,
-                      size: 40,
-                      color: theme.colorScheme.primary,
+            Material(
+              color: neutralColor?.neutralColor7, // Đưa màu nền vào Material
+              borderRadius: BorderRadius.circular(12),
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                onTap: () {
+                  print("object");
+                },
+                splashColor: Colors.green.withValues(alpha: 0.5),
+                highlightColor: Colors.green.withValues(alpha: 0.2),
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                  decoration: BoxDecoration(
+                    // color: neutralColor?.neutralColor7,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.fromBorderSide(
+                      BorderSide(
+                        color: neutralColor?.neutralColor5 ?? Colors.black,
+                      ),
                     ),
-            ),
-            const SizedBox(height: 16),
-            // App Name
-            Text(
-              widget.appName ?? 'Ứng dụng',
-              style: theme.extension<AppTextStyleTheme>()?.neu1Medi24?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: neutralColor?.neutralColor1 ?? Colors.black,
                   ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              'Giới hạn thời gian sử dụng mỗi ngày',
-              style: theme.extension<AppTextStyleTheme>()?.neu1Regu14?.copyWith(
-                    color: neutralColor?.neutralColor3 ?? Colors.grey,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.appName ?? 'Ứng dụng',
+                              style: theme
+                                  .extension<AppTextStyleTheme>()
+                                  ?.neu1Medi24
+                                  ?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: neutralColor?.neutralColor1 ??
+                                        Colors.black,
+                                  ),
+                            ),
+                            Text(
+                              'Bật tắt giới hạn thời gian sử dụng ứng dụng hàng ngày',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: theme
+                                  .extension<AppTextStyleTheme>()
+                                  ?.neu1Regu14
+                                  ?.copyWith(
+                                    color: neutralColor?.neutralColor3 ??
+                                        Colors.grey,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 12),
+                        child: CustomSwitcherButton(
+                          value: true,
+                        ),
+                      )
+                    ],
                   ),
+                ),
+              ),
             ),
+
             const SizedBox(height: 32),
             // Hours & Minutes Horizontal Scoreboard Display
             Row(
@@ -150,7 +172,8 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
                   bloc: _bloc,
                   selector: (state) => _bloc.minutes,
                   builder: (context, minutes) {
-                    final minutesStr = (minutes % 60).toString().padLeft(2, '0');
+                    final minutesStr =
+                        (minutes % 60).toString().padLeft(2, '0');
                     return ScoreBoardCard(value: minutesStr);
                   },
                 ),
@@ -411,9 +434,10 @@ class ScoreBoardCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = ThemeProvider.themeOf(context).data;
     final neutralColor = theme.extension<AppColorTheme>()?.neutralColor;
-    
+
     // Choose a suitable scoreboard background (dark charcoal color)
-    final bg = cardColor ?? neutralColor?.neutralColor2 ?? const Color(0xff2E3131);
+    final bg =
+        cardColor ?? neutralColor?.neutralColor2 ?? const Color(0xff2E3131);
 
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 350),
@@ -476,5 +500,122 @@ class ScoreBoardCard extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class GlisteningRippleCard extends StatefulWidget {
+  final Widget child;
+  final bool isEnabled;
+  const GlisteningRippleCard({
+    Key? key,
+    required this.child,
+    required this.isEnabled,
+  }) : super(key: key);
+  @override
+  State<GlisteningRippleCard> createState() => _GlisteningRippleCardState();
+}
+
+class _GlisteningRippleCardState extends State<GlisteningRippleCard>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 2000),
+    );
+    if (widget.isEnabled) {
+      _controller.repeat();
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant GlisteningRippleCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.isEnabled != oldWidget.isEnabled) {
+      if (widget.isEnabled) {
+        _controller.repeat();
+      } else {
+        _controller.stop();
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: Stack(
+        children: [
+          // 1. Lớp background tĩnh
+          Positioned.fill(
+            child: Container(
+              color: const Color(0xff1A1D1D), // Màu nền tối của card
+            ),
+          ),
+          // 2. Lớp hiệu ứng gợn sóng lan tỏa khi Enabled = true
+          if (widget.isEnabled)
+            Positioned.fill(
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) {
+                  return CustomPaint(
+                    painter: ConcentricRipplePainter(
+                      progress: _controller.value,
+                      // Chỉ định tâm của vòng tròn lan tỏa lệch về phía bên phải (vị trí Switch)
+                      rippleCenterOffset: const Offset(0.85, 0.5),
+                    ),
+                  );
+                },
+              ),
+            ),
+          // 3. Nội dung hiển thị bên trên cùng
+          widget.child,
+        ],
+      ),
+    );
+  }
+}
+
+// CustomPainter để vẽ vòng tròn đồng tâm mờ dần
+class ConcentricRipplePainter extends CustomPainter {
+  final double progress;
+  final Offset rippleCenterOffset; // Tỉ lệ vị trí tâm (x, y) từ 0.0 -> 1.0
+  ConcentricRipplePainter({
+    required this.progress,
+    required this.rippleCenterOffset,
+  });
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(
+      size.width * rippleCenterOffset.dx,
+      size.height * rippleCenterOffset.dy,
+    );
+
+    final maxRadius = size.width * 0.8;
+    final paint = Paint()..style = PaintingStyle.fill;
+    // Vẽ 3 lớp sóng đồng tâm lệch pha nhau
+    for (int i = 0; i < 3; i++) {
+      double waveProgress = (progress - (i * 0.2)) % 1.0;
+      if (waveProgress < 0) waveProgress += 1.0;
+      final radius = maxRadius * waveProgress;
+      // Nhạt dần khi lan rộng ra xa
+      final opacity = (1.0 - waveProgress) * 0.15;
+      paint.color =
+          const Color(0xff00E676).withOpacity(opacity); // Màu xanh lá neon
+      canvas.drawCircle(center, radius, paint);
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant ConcentricRipplePainter oldDelegate) {
+    return oldDelegate.progress != progress;
   }
 }

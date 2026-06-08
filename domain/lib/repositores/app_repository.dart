@@ -8,4 +8,6 @@ abstract class AppRepository {
   //
   List<InstalledApplicationInfo?> get getAllAppInstalled;
   Uint8List? getIconForPackage(String? packageName);
+  Future<AppLimitConfig?> getAppLimitConfig(String? packageName);
+  Future<bool> setAppLimitConfig(AppLimitConfig? appLimitConfig);
 }
