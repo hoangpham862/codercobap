@@ -22,3 +22,17 @@ class EnableLockAppEvent extends SettingLimitTimeEvent {
   final bool? isLocked;
   EnableLockAppEvent({this.isLocked});
 }
+
+//
+class LoadAppLimitConfigEvent extends SettingLimitTimeEvent {
+  final String packageName;
+  LoadAppLimitConfigEvent({required this.packageName});
+}
+
+class SaveAppLimitConfigEvent extends SettingLimitTimeEvent {
+  final String packageName;
+
+  SaveAppLimitConfigEvent({
+    required this.packageName,
+  });
+}

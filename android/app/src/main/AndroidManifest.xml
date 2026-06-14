@@ -8,11 +8,10 @@ package="vn.com.codercobap.nekofocus"
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
         </intent>
-        <!-- Declate queriess get list packages installed -->
+        <!-- Declare queries to get list of installed packages with launcher icons -->
         <intent>
-            <action android:name="android.intent.action.VIEW"/>
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="https"/>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
         </intent>
     </queries>
 

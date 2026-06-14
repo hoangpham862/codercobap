@@ -110,8 +110,6 @@ class _ListAppControlState extends State<ListAppControl> {
 
   //
   Widget buildItems(BuildContext context, InstalledApplicationInfo? item) {
-    Uint8List? icon =
-        locator<AppRepository>().getIconForPackage(item?.packageName ?? '');
     return InkWell(
       onTap: () async {
         if (_isNavigating) return;
@@ -132,25 +130,7 @@ class _ListAppControlState extends State<ListAppControl> {
       child: Container(
         padding: const EdgeInsets.all(12),
         margin: const EdgeInsets.only(bottom: 12),
-        decoration: BoxDecoration(
-            // color: ThemeProvider.themeOf(context)
-            //     .data
-            //     .extension<AppColorTheme>()
-            //     ?.neutralColor
-            //     ?.neutralColor7,
-            // borderRadius: BorderRadius.circular(12),
-            // border: Border.fromBorderSide(
-            //   BorderSide(
-            //     color: ThemeProvider.themeOf(context)
-            //             .data
-            //             .extension<AppColorTheme>()
-            //             ?.neutralColor
-            //             .neutralColor9 ??
-            //         Colors.transparent,
-            //     width: 1,
-            //   ),
-            // ),
-            ),
+        decoration: const BoxDecoration(),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -158,26 +138,12 @@ class _ListAppControlState extends State<ListAppControl> {
             // Icon App
             Row(
               children: [
-                Container(
+                SizedBox(
                   width: 48,
                   height: 48,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(12)),
-                  child: icon != null
-                      ? Image.memory(
-                          icon,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) {
-                            return Container(
-                              color: Colors.grey,
-                              child: const Icon(
-                                Icons.error,
-                                color: Colors.white,
-                              ),
-                            );
-                          },
-                        )
-                      : null,
+                  child: AppIconWidget(
+                    packageName: item?.packageName ?? '',
+                  ),
                 ),
                 const SizedBox(
                   width: 16,
@@ -202,16 +168,98 @@ class _ListAppControlState extends State<ListAppControl> {
                 ),
               ],
             ),
-
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {},
-              child: CustomSwitcherButton(
-                value: true,
-              ),
-            )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class AppIconWidget extends StatefulWidget {
+  final String packageName;
+  const AppIconWidget({super.key, required this.packageName});
+
+  @override
+  State<AppIconWidget> createState() => _AppIconWidgetState();
+}
+
+class _AppIconWidgetState extends State<AppIconWidget> {
+  Uint8List? _iconBytes;
+  bool _loading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadIcon();
+  }
+
+  @override
+  void didUpdateWidget(AppIconWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.packageName != widget.packageName) {
+      _loadIcon();
+    }
+  }
+
+  void _loadIcon() {
+    if (widget.packageName.isEmpty) return;
+    
+    final cached = locator<AppRepository>().getIconForPackage(widget.packageName);
+    if (cached != null) {
+      setState(() {
+        _iconBytes = cached;
+        _loading = false;
+      });
+      return;
+    }
+
+    setState(() {
+      _iconBytes = null;
+      _loading = true;
+    });
+
+    locator<AppRepository>().getIcon(widget.packageName).then((bytes) {
+      if (mounted) {
+        setState(() {
+          _iconBytes = bytes;
+          _loading = false;
+        });
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_iconBytes != null) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.memory(
+          _iconBytes!,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) => _buildFallbackIcon(),
+        ),
+      );
+    }
+
+    if (_loading) {
+      return const Padding(
+        padding: EdgeInsets.all(12.0),
+        child: CircularProgressIndicator(strokeWidth: 2),
+      );
+    }
+
+    return _buildFallbackIcon();
+  }
+
+  Widget _buildFallbackIcon() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey.shade300,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: const Icon(
+        Icons.android,
+        color: Colors.white,
       ),
     );
   }

@@ -2,7 +2,7 @@ part of 'entities.dart';
 
 class AppLimitConfig {
   final String? package;
-  final String? limitMinutes;
+  final int? limitMinutes;
   final bool? applyAllDays;
   final bool? applyWeekendOnly;
   final bool? isLocked;
@@ -24,7 +24,7 @@ class AppLimitConfig {
     };
   }
 
-  factory AppLimitConfig.fromJson(Map<String, dynamic> json) {
+  factory AppLimitConfig.fromJson(Map<dynamic, dynamic> json) {
     return AppLimitConfig(
         package: json['package'],
         limitMinutes: json['limitMinutes'],

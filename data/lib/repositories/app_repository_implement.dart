@@ -42,7 +42,6 @@ class AppRepositoryImplement implements AppRepository {
               isSystemApp: e.isSystemApp);
 
       _appInstalledCache[packageName] = installedApplicationInfo;
-      getIcon(packageName);
       filteredApps.add(installedApplicationInfo);
     }
 
@@ -112,8 +111,8 @@ class AppRepositoryImplement implements AppRepository {
   Future<AppLimitConfig?> getAppLimitConfig(String? packageName) async {
     if (packageName == null || packageName.isEmpty) return null;
 
-    Map<String, dynamic>? data = await _hiveStorageDatasource
-        .getValueAsync<Map<String, dynamic>?>('app_limit_config_$packageName');
+    Map<dynamic, dynamic>? data = await _hiveStorageDatasource
+        .getValueAsync<Map<dynamic, dynamic>?>('app_limit_config_$packageName');
 
     if (data != null) {
       return AppLimitConfig.fromJson(data);
@@ -126,7 +125,7 @@ class AppRepositoryImplement implements AppRepository {
     if (isBlack) {
       return AppLimitConfig(
         package: packageName,
-        limitMinutes: "120",
+        limitMinutes: 120,
         applyAllDays: true,
         applyWeekendOnly: false,
         isLocked: true,
@@ -136,7 +135,7 @@ class AppRepositoryImplement implements AppRepository {
     // Các app bình thường khác -> Mặc định TẮT kiểm soát (isLocked = false)
     return AppLimitConfig(
       package: packageName,
-      limitMinutes: "120",
+      limitMinutes: 120,
       applyAllDays: true,
       applyWeekendOnly: false,
       isLocked: false,
@@ -146,7 +145,7 @@ class AppRepositoryImplement implements AppRepository {
   @override
   Future<bool> setAppLimitConfig(AppLimitConfig? appLimitConfig) async {
     if (appLimitConfig == null) return false;
-    await _hiveStorageDatasource.setValue(
+    await _hiveStorageDatasource.setValue<Map<dynamic, dynamic>?>(
         'app_limit_config_${appLimitConfig.package}', appLimitConfig.toJson());
     return true;
   }

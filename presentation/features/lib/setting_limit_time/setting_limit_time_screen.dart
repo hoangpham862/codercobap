@@ -31,6 +31,7 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
   void initState() {
     super.initState();
     _bloc = SettingLimitTimeBloc();
+    _bloc.add(LoadAppLimitConfigEvent(packageName: widget.packageName ?? ""));
   }
 
   @override
@@ -78,17 +79,19 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
           children: [
             // App Icon Container
             Material(
-              color: neutralColor?.neutralColor7, // Đưa màu nền vào Material
+              color: neutralColor?.neutralColor9, // Đưa màu nền vào Material
               borderRadius: BorderRadius.circular(12),
               clipBehavior: Clip.antiAlias,
               child: InkWell(
                 onTap: () {
-                  print("object");
+                  _bloc.add(EnableLockAppEvent(
+                      isLocked: !_bloc.currentState.isLocked));
                 },
                 splashColor: Colors.green.withValues(alpha: 0.5),
                 highlightColor: Colors.green.withValues(alpha: 0.2),
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
                   decoration: BoxDecoration(
                     // color: neutralColor?.neutralColor7,
                     borderRadius: BorderRadius.circular(12),
@@ -132,12 +135,19 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
                           ],
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 12),
-                        child: CustomSwitcherButton(
-                          value: true,
-                        ),
-                      )
+                      BlocSelector<SettingLimitTimeBloc, BaseState, bool>(
+                          bloc: _bloc,
+                          selector: (state) => state is SettingLimitTimeState
+                              ? state.isLocked
+                              : _bloc.currentState.isLocked,
+                          builder: (context, isLocked) {
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 12),
+                              child: CustomSwitcherButton(
+                                value: isLocked,
+                              ),
+                            );
+                          })
                     ],
                   ),
                 ),
@@ -152,7 +162,9 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
               children: [
                 BlocSelector<SettingLimitTimeBloc, BaseState, int>(
                   bloc: _bloc,
-                  selector: (state) => _bloc.minutes,
+                  selector: (state) => state is SettingLimitTimeState
+                      ? state.minutes
+                      : _bloc.currentState.minutes,
                   builder: (context, minutes) {
                     final hoursStr = (minutes ~/ 60).toString().padLeft(2, '0');
                     return ScoreBoardCard(value: hoursStr);
@@ -170,7 +182,9 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
                 const SizedBox(width: 16),
                 BlocSelector<SettingLimitTimeBloc, BaseState, int>(
                   bloc: _bloc,
-                  selector: (state) => _bloc.minutes,
+                  selector: (state) => state is SettingLimitTimeState
+                      ? state.minutes
+                      : _bloc.currentState.minutes,
                   builder: (context, minutes) {
                     final minutesStr =
                         (minutes % 60).toString().padLeft(2, '0');
@@ -193,7 +207,9 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
             // Horizontal Slider
             BlocSelector<SettingLimitTimeBloc, BaseState, int>(
                 bloc: _bloc,
-                selector: (state) => _bloc.minutes,
+                selector: (state) => state is SettingLimitTimeState
+                    ? state.minutes
+                    : _bloc.currentState.minutes,
                 builder: (context, minutes) {
                   return SliderTheme(
                     data: SliderTheme.of(context).copyWith(
@@ -210,7 +226,7 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
                           const RoundSliderOverlayShape(overlayRadius: 24.0),
                     ),
                     child: Slider(
-                      value: _bloc.minutes.toDouble(),
+                      value: minutes.toDouble(),
                       min: 5.0,
                       max: 180.0,
                       divisions: 35, // (180 - 5) / 5
@@ -269,7 +285,9 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
             // Card Options
             BlocSelector<SettingLimitTimeBloc, BaseState, bool>(
               bloc: _bloc,
-              selector: (state) => _bloc.enableApplyAllDays,
+              selector: (state) => state is SettingLimitTimeState
+                  ? state.enableApplyAllDays
+                  : _bloc.currentState.enableApplyAllDays,
               builder: (context, enableApplyAllDays) {
                 return _buildOptionCard(
                   context,
@@ -286,7 +304,9 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
             const SizedBox(height: 12),
             BlocSelector<SettingLimitTimeBloc, BaseState, bool>(
               bloc: _bloc,
-              selector: (state) => _bloc.enableWeekenOnly,
+              selector: (state) => state is SettingLimitTimeState
+                  ? state.enableWeekenOnly
+                  : _bloc.currentState.enableWeekenOnly,
               builder: (context, enableWeekenOnly) {
                 return _buildOptionCard(
                   context,
@@ -303,38 +323,65 @@ class _SettingLimitTimeScreenState extends State<SettingLimitTimeScreen> {
             const SizedBox(height: 40),
 
             // Save Button
-            SizedBox(
-              width: double.infinity,
-              height: 56,
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  // Perform save action
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Đã lưu cấu hình giới hạn thời gian'),
+            BlocSelector<SettingLimitTimeBloc, BaseState, bool>(
+              bloc: _bloc,
+              selector: (state) =>
+                  state is SettingLimitTimeState ? state.hasChanges : false,
+              builder: (context, hasChanges) {
+                return SizedBox(
+                  width: double.infinity,
+                  height: 56,
+                  child: ElevatedButton.icon(
+                    onPressed: hasChanges
+                        ? () {
+                            _bloc.add(SaveAppLimitConfigEvent(
+                              packageName:
+                                  _bloc.currentState.appLimitConfig?.package ??
+                                      '',
+                            ));
+                            // Perform save action
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content:
+                                    Text('Đã lưu cấu hình giới hạn thời gian'),
+                              ),
+                            );
+                          }
+                        : null,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: theme.colorScheme.tertiary,
+                      disabledBackgroundColor:
+                          theme.colorScheme.tertiary.withValues(alpha: 0.4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      elevation: 0,
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: theme.colorScheme.primary,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+                    icon: Icon(
+                      size: 24,
+                      Icons.check_circle_outline,
+                      color: theme
+                          .extension<AppColorTheme>()
+                          ?.neutralColor
+                          .neutralColor8
+                          .withValues(alpha: hasChanges ? 1.0 : 0.5),
+                    ),
+                    label: Text(
+                      'Lưu Cài đặt',
+                      style: theme
+                          .extension<AppTextStyleTheme>()
+                          ?.neu1Medi16
+                          ?.copyWith(
+                            color: theme
+                                .extension<AppColorTheme>()
+                                ?.neutralColor
+                                .neutralColor8
+                                .withValues(alpha: hasChanges ? 1.0 : 0.5),
+                          ),
+                    ),
                   ),
-                  elevation: 0,
-                ),
-                icon: const Icon(
-                  Icons.check_circle_outline,
-                  color: Colors.white,
-                ),
-                label: const Text(
-                  'Lưu Cài đặt',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+                );
+              },
             ),
           ],
         ),
